@@ -208,6 +208,7 @@ img{max-width:100%;display:block}
 .mark .lat svg{position:absolute;inset:0;width:100%;height:100%}
 .mark .tx{padding:48px clamp(24px,4vw,56px)}
 .mark .tx p{color:var(--w2);margin-top:20px;max-width:30em}
+.mark .ln{display:block;white-space:nowrap}
 /* 캐러셀 */
 .car{display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
 .car::-webkit-scrollbar{display:none}
@@ -230,10 +231,14 @@ img{max-width:100%;display:block}
 /* 강사 */
 .ppl{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap)}
 @media (max-width:1100px){.ppl{grid-template-columns:repeat(3,1fr)}}@media (max-width:640px){.ppl{grid-template-columns:1fr}}
-.ppl .top{background:var(--cream);padding:22px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.ppl>div{display:flex;flex-direction:column;height:100%}
+.ppl .top{flex:1;background:var(--cream);padding:22px;min-height:290px;display:flex;flex-direction:column;justify-content:flex-start;gap:14px}
+.ppl .top .ck{margin-top:auto}
+@media (max-width:640px){.ppl .top{min-height:0}}
 .ppl .top p{font-size:14px;color:var(--t2);line-height:1.6}
 .ppl .top .btn{align-self:flex-start;min-height:40px;padding:8px 14px;font-size:13px}
-.ppl .ph{position:relative;aspect-ratio:4/3;overflow:hidden;color:#fff}
+.ppl .ph{position:relative;aspect-ratio:4/3;overflow:hidden;color:#fff;flex:none}
+.ppl .ph .credit{font-size:12px;left:10px;right:10px;line-height:1.35}
 .ppl .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.6)}
 .ppl .ph b{position:absolute;left:18px;bottom:14px;font:500 28px var(--serif);letter-spacing:-.02em}
 .ppl .ck{font-size:12.5px;border:1px solid rgba(30,50,90,.3);padding:1px 8px;align-self:flex-start}
@@ -318,6 +323,22 @@ img{max-width:100%;display:block}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary i{font-style:normal;width:28px;height:28px;background:var(--or-t);color:#fff;display:flex;align-items:center;justify-content:center;font:500 14px var(--sans);flex:none}
 .faq p{padding:0 0 22px 42px;color:var(--t2);max-width:46em}
+
+/* 대표 인사말 */
+.ceo{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:110px}
+@media (max-width:860px){.ceo{grid-template-columns:1fr}}
+.pf{margin:0}
+.ph0{aspect-ratio:4/5;background:radial-gradient(120% 80% at 70% 15%,#2563EB 0,#0E2A6B 55%,#081C4A 100%);position:relative;display:flex;align-items:flex-end;padding:22px;overflow:hidden}
+.ph0::before{content:"";position:absolute;right:-12%;top:-10%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#F59E0B 0,#E8590C 45%,transparent 70%);opacity:.75}
+.ph0 .ini{position:absolute;left:22px;top:12px;font:400 clamp(120px,14vw,200px)/1 var(--serif);color:rgba(255,255,255,.14)}
+.ph0 .mono{position:relative}
+.msg blockquote{margin:18px 0 0;font-size:clamp(22px,2.2vw,32px);line-height:1.45;letter-spacing:-.02em}
+.msg>p{margin-top:20px;color:var(--t2);max-width:38em}
+.sig{display:flex;align-items:baseline;gap:12px;margin-top:26px;padding-top:18px;border-top:1px solid rgba(30,50,90,.15)}
+.sig b{font:500 26px var(--serif);color:var(--t1)}
+.sig span{font-size:14px;color:var(--t3)}
+.bio{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;font-size:14.5px;color:var(--t2)}
+.bio li{display:flex;align-items:center}
 /* 등장 */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -337,7 +358,7 @@ img{max-width:100%;display:block}
 <div class="frame">
 <header class="hd" id="hd"><div class="wrap">
   <a class="logo" href="#top"><svg><use href="#mk"/></svg>R.Start</a>
-  <nav class="nav" aria-label="주 메뉴"><a href="#sv">사역</a><a href="#tt">제주 세미나</a><a href="#sem">세미나·책</a><a href="#mat">자료</a><a href="#ppl">강사</a><a href="#faq">묻고 답하기</a></nav>
+  <nav class="nav" aria-label="주 메뉴"><a href="#sv">사역</a><a href="#tt">제주 세미나</a><a href="#sem">세미나·책</a><a href="#mat">자료</a><a href="#ceo">대표 인사말</a><a href="#ppl">강사</a><a href="#faq">묻고 답하기</a></nav>
   <a class="btn b-line" href="#news">소식 받기</a>
   <button class="btn b-ink" onclick="openSheet()">세미나 신청</button>
 </div></header>
@@ -416,9 +437,26 @@ img{max-width:100%;display:block}
   </section>
   <section class="wrap"><div class="mark rv">
     <div class="lat"><svg viewBox="0 0 600 460" id="lat" aria-hidden="true"></svg></div>
-    <div class="tx"><span class="mono" style="color:var(--w2)"><span class="sq"></span>미래교회연구소</span><h2 class="sf h2" style="color:#fff;margin-top:14px">하나의 표, 하나의 사명.<br>미래를 읽고 오늘 섬깁니다.</h2><p>미래예측과 AI자비스비서를 도구로 삼아 한국교회와 이민교회, 선교지의 목회자와 성도를 섬기는 연구·교육 사역 기관입니다. 국내 10개 지역과 해외 10개국으로 섬김을 넓힙니다.</p><a class="btn b-white" style="margin-top:28px" href="#ppl">강사 보기 <svg><use href="#ar"/></svg></a></div>
+    <div class="tx"><span class="mono" style="color:var(--w2)"><span class="sq"></span>미래교회연구소</span><h2 class="sf h2" style="color:#fff;margin-top:14px"><span class="ln">하나의 표,</span><span class="ln">하나의 사명.</span><span class="ln">미래를 읽고</span><span class="ln">오늘을 섬깁니다.</span></h2><p>미래예측과 AI자비스비서를 도구로 삼아 한국교회와 이민교회, 선교지의 목회자와 성도를 섬기는 연구·교육 사역 기관입니다. 국내 10개 지역과 해외 10개국으로 섬김을 넓힙니다.</p><a class="btn b-white" style="margin-top:28px" href="#ppl">강사 보기 <svg><use href="#ar"/></svg></a></div>
   </div></section>
 
+
+  <section class="wrap" id="ceo"><div class="ceo rv">
+    <figure class="pf"><div class="ph0" role="img" aria-label="정성진 대표 사진 자리"><span class="ini">정</span><span class="mono" style="color:var(--w2)">대표 사진 · 받는 대로 교체</span></div></figure>
+    <div class="msg">
+      <span class="eyebrow mono"><span class="sq"></span>대표 인사말</span>
+      <blockquote class="sf">"내가 죽어야 교회가 산다는 마음으로 걸어왔습니다. 이제 미래를 읽는 눈과 새로운 도구로, 목회자가 말씀과 사람 곁에 더 오래 머물도록 돕겠습니다."</blockquote>
+      <p>한국교회는 지금 변곡점에 서 있습니다. 미래교회연구소는 다가올 변화를 먼저 읽고, 그 위에서 오늘의 목회를 다시 세우도록 섬깁니다. 2027년, 한국교회와 이민교회와 선교지를 더 넓게 섬기는 길에 함께해 주십시오.</p>
+      <div class="sig"><b>정성진</b><span>미래교회연구소 대표</span></div>
+      <ul class="bio">
+        <li><span class="sq"></span>1999년 일산 거룩한빛광성교회 개척, 약 20년 시무</li>
+        <li><span class="sq"></span>2019년 약속대로 65세 조기 은퇴, 원로목사 사양</li>
+        <li><span class="sq"></span>분립 개척으로 20여 교회를 세움 · 목회 철학 '아사교회생(我死敎會生)'</li>
+        <li><span class="sq"></span>미래목회포럼 대표 역임 · 사단법인 크로스로드 이사장</li>
+      </ul>
+      <p class="mono" style="margin-top:14px">인사말은 공개 기사를 바탕으로 쓴 초안입니다 — 대표 확인 뒤 확정</p>
+    </div>
+  </div></section>
   <section class="wrap" id="sem">
     <div class="shead" style="align-items:end"><h2 class="sf h2 rv">세미나와 책.<br>지금 신청하세요.</h2><div class="carnav rv d1" style="justify-self:end"><button aria-label="이전" onclick="car(-1)">←</button><button aria-label="다음" onclick="car(1)">→</button></div></div>
     <div class="car rv" id="car"></div>
@@ -434,7 +472,7 @@ img{max-width:100%;display:block}
   </section>
 
   <section class="wrap" id="ppl">
-    <div class="shead"><h2 class="sf h2 rv">다섯 강사가<br>다섯 사역을 이끕니다.</h2><p class="rv d1">공개 기사로 확인한 내용을 바탕으로 쓴 가안입니다. 사진과 소개글은 강사 본인 확인 뒤 바꿉니다.</p></div>
+    <div class="shead"><h2 class="sf h2 rv">다섯 강사가<br>다섯 사역을 이끕니다.</h2><p class="rv d1">공개 기사로 확인한 내용을 바탕으로 쓴 가안입니다. 사진은 강사 본인 사진이 아니라 강의 장면을 보여 주는 자료 사진이며, 본인 강의 사진을 받는 대로 바꿉니다.</p></div>
     <div class="ppl" id="pplg"></div>
   </section>
 
@@ -533,8 +571,8 @@ function car(d){const c=$('#car');c.scrollBy({left:d*(c.firstElementChild.offset
 /* 숫자 줄 */
 $('#rates').innerHTML=[['결정은 목회자가','비서는 초안과 자료를 내놓고, 고르고 정하는 일은 목회자가 합니다.'],['내놓은 것은 꼭 확인','AI가 쓴 내용은 틀릴 수 있습니다. 성경 본문과 사실은 직접 확인합니다.'],['성도의 정보는 조심히','무엇을 맡기고 무엇을 맡기지 않을지 기준을 먼저 세웁니다.']].map(([a,b],i)=>`<div><span class="mono">0${i+1}</span><b style="font-size:20px;margin-top:6px">${a}</b><span>${b}</span></div>`).join('');
 /* 강사 */
-const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','library','Kenneth C. Zirkel · CC BY 4.0','공개 기사 확인'],['PLANNING','최현식','미래교회연구소 대표, 예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 목회계획 세미나를 이끕니다.','seminar2','Breather · CC0','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','seminars','Ben White · CC0','공개 기사 확인'],['YOUNG ADULT','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 청년 세대를 세웁니다.','applied','Peter Lewis · CC0','본인 확인 필요'],['YOUTH MISSION','현영광','서울YFC(십대선교회) 대표. "그리스도는 십대를 통하여 세계를 변화시킨다" — 청소년 선교 현장에서 다음 세대 사역을 이끕니다.','news','Priscilla Du Preez · CC0','명함 자료 확인']];
-$('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p><span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">사진: ${cr}</span><b>${n}</b></div></div>`).join('');
+const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','lec1','Ling-Luo-CA · CC BY-SA 4.0','공개 기사 확인'],['PLANNING','최현식','예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 2024년부터 목회계획 세미나를 이끕니다.','lec2','Sonkiki · CC0','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','lec3','LF Asia · CC BY 3.0','공개 기사 확인'],['YOUNG ADULT','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 청년 세대를 세웁니다.','lec4','delegateconnectimages · CC BY 2.0','본인 확인 필요'],['YOUTH MISSION','현영광','서울YFC(십대선교회) 대표. "그리스도는 십대를 통하여 세계를 변화시킨다" — 청소년 선교 현장에서 다음 세대 사역을 이끕니다.','lec5','AIATSIS · CC BY-SA 4.0','명함 자료 확인']];
+$('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p><span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">자료 사진 · ${cr}</span><b>${n}</b></div></div>`).join('');
 /* 시나리오 원뿔 */
 (function(){let h='<g fill="none" stroke-width="1">';for(let i=0;i<=12;i++){const t=i/12;h+=`<path d="M60 180 L460 ${30+t*300}" stroke="rgba(255,255,255,${i===2?.0:.12})"/>`}
  for(let k=1;k<=6;k++){const x=60+k*66.6,s=(x-60)/400;h+=`<ellipse cx="${x}" cy="180" rx="${10*s+2}" ry="${150*s}" stroke="rgba(255,255,255,.14)"/>`}
