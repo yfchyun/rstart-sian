@@ -400,7 +400,7 @@ img{max-width:100%;display:block}
   <section class="wrap"><div class="proof rv">
     <div class="l"><div><b>목회자 1,000여 명이 함께했습니다.</b><span style="font-size:14px;color:var(--t3)">2026년 세미나·특강·컨퍼런스</span></div><div><a href="#sem">목회자를 위한 과정 <svg width="14" height="14"><use href="#ar"/></svg></a><a href="#sem">선교사·이민교회를 위한 과정 <svg width="14" height="14"><use href="#ar"/></svg></a></div></div>
     <div class="pgrid" id="pgrid"></div>
-    <div class="r"><img src="img/seminar2.jpg" alt="세미나 교육실"><span class="credit">사진: Breather · CC0</span><div><span class="mono" style="color:var(--w2)">2026 목회계획 세미나</span><b>다섯 곳 순회,<br>대만까지.</b><span style="font-size:13px;color:var(--w2)">300여 명의 목회자가 함께 한 해를 짰습니다</span></div></div>
+    <div class="r"><img src="img/sem_cheongju.jpg" alt="2027년 목회계획·목회전략 세미나, 청주 복대교회"><span class="credit">사진: 연구소 제공 · 2026.10.13 청주 복대교회</span><div><span class="mono" style="color:var(--w2)">2026 가을 목회계획 세미나</span><b>여섯 지역 순회,<br>다음은 제주.</b><span style="font-size:13px;color:var(--w2)">청주 · 양주 · 전주 · 대만 타이중 · 포항, 그리고 2027년 3월 제주</span></div></div>
   </div></section>
 
   <section class="wrap" id="sv">
@@ -534,7 +534,7 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ns='http://www.w3.org/2000/svg';
 /* 지역 흐름 */
-const places=['서울','용인','청주','전주','포항','대만','말레이시아','베트남','인도네시아','미국'];
+const places=['청주 · 복대교회','양주 · 새순교회','전주 · 샘물교회','대만 · 타이중','포항 · 중앙침례교회','제주 · 2027년 3월','서울','용인','말레이시아','베트남','인도네시아','미국'];
 $('#mq').innerHTML=[...places,...places].map((p,i)=>`<span class="${i%3===1?'s':''}">${p}</span>`).join('');
 $('#fmq').innerHTML=[...places,...places].map(p=>`<span>${p}</span>`).join('');
 /* 궤도 */
@@ -555,7 +555,7 @@ $('#aicons').innerHTML=['book','doc','cal','mail','globe','chart'].map(k=>`<span
 $('#week').innerHTML=[['행정','주보 · 공문 · 회의록 초안'],['심방','기록 정리 · 기도 제목 모으기'],['교육','우리 교회 눈높이 교안'],['소통','공지 · 홈페이지 · 짧은 영상'],['행사','점검표 · 안내문 · 순서지']].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
 if(0)$('#tools').innerHTML=[['book','설교 자료'],['doc','주보'],['mail','공문'],['people','심방 기록'],['cal','교회 일정'],['mic','교안'],['play','교회 쇼츠'],['web','홈페이지'],['globe','번역'],['chart','통계 읽기'],['coin','재정 정리'],['heart','새가족']].map(([k,t],i)=>`<span>${svgI(k,['#2563EB','#0E2A6B','#1E40AF','#44506B'][i%4])}${t}</span>`).join('');
 /* 증거 격자 */
-const pg=[['1,000<small>+</small>','함께한 목회자'],['10<small>곳</small>','국내 현장 도시'],['5<small>회</small>','해외 선교지 사역'],['1~5<small>기</small>','AI 설교 세미나'],['300<small>+</small>','목회계획 세미나'],['서울','',1],['용인','',1],['청주','',1],['전주','',1],['포항','',1],['대만','',1],['말레이시아','',1],['베트남','',1],['인도네시아','',1],['미국','',1]];
+const pg=[['1,000<small>+</small>','함께한 목회자'],['10<small>곳</small>','국내 현장 도시'],['5<small>회</small>','해외 선교지 사역'],['1~5<small>기</small>','AI 설교 세미나'],['300<small>+</small>','목회계획 세미나'],['서울','',1],['용인','',1],['양주','',1],['청주','',1],['전주','',1],['포항','',1],['제주','',1],['대만','',1],['동남아','',1],['미국','',1]];
 $('#pgrid').innerHTML=pg.map(([a,b,n])=>n?`<div><span class="nm">${a}</span></div>`:`<div><b>${a}</b><span>${b}</span></div>`).join('');
 /* 아코디언 */
 const SV=[
