@@ -13,12 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@400;500&display=swap">
 <style>
-/* v5 — finseo.ai 역설계 적용: 따뜻한 크림 + 에스프레소 갈색 + 주황 한 점(■·데이터만) · 세리프 제목 + 가벼운 산세리프 + 모노 라벨 · 모서리 0 벤토 · 주장마다 증거 */
+/* v5.1 — finseo.ai 구성 + 미래를 상징하는 파란 계열(세미나 포스터 남색·파랑에 맞춤) + 주황 해 한 점(■·데이터만) · 세리프 제목 + 가벼운 산세리프 + 모노 라벨 · 모서리 0 벤토 · 주장마다 증거 */
 :root{
-  --cream:#F1EEE9; --cream2:#E4DED3; --paper:#FAF8F5; --ink:#1C1C1C; --ink2:#121110;
-  --brown:#3A1B10; --brown2:#241510; --rust:#6B2A10; --rust2:#A8400F; --or:#E8590C; --or-t:#B8440A;
-  --sage:#AEBB9E; --salmon:#D98C74;
-  --t1:#1A1817; --t2:#433F3B; --t3:#57534E; --t4:#6E6963;
+  --cream:#EEF3FB; --cream2:#DDE7F7; --paper:#F7F9FE; --ink:#0B1530; --ink2:#070F24;
+  --navy:#0E2A6B; --navy2:#081C4A; --rust:#1E40AF; --rust2:#2563EB; --or:#E8590C; --or-t:#C2410C;
+  --sage:#7DD3FC; --salmon:#F59E0B;
+  --t1:#0B1530; --t2:#2B3A5C; --t3:#44506B; --t4:#56627A;
   --w1:#fff; --w2:rgba(255,255,255,.78); --w3:rgba(255,255,255,.6);
   --serif:"Noto Serif KR",Georgia,serif; --sans:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif; --mono:"IBM Plex Mono","Noto Sans KR",ui-monospace,monospace;
   --gap:12px; --max:1312px; --gut:clamp(16px,4.4vw,64px);
@@ -32,7 +32,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3,h4,p{margin:0;font-weight:400}
 img{max-width:100%;display:block}
 .frame{position:relative;max-width:calc(var(--max) + 2*var(--gut) + 48px);margin:0 auto}
-.frame::before,.frame::after{content:"";position:absolute;top:0;bottom:0;width:0;border-left:1px dashed rgba(67,63,59,.18);pointer-events:none}
+.frame::before,.frame::after{content:"";position:absolute;top:0;bottom:0;width:0;border-left:1px dashed rgba(30,50,90,.18);pointer-events:none}
 .frame::before{left:24px}.frame::after{right:24px}
 @media (max-width:700px){.frame::before,.frame::after{display:none}}
 .wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
@@ -50,10 +50,10 @@ img{max-width:100%;display:block}
 .b-cream{background:var(--cream2);color:var(--t1)}
 .b-white{background:#fff;color:var(--t1)}
 .b-or{background:var(--or-t);color:#fff}
-.b-line{background:transparent;color:var(--t1);box-shadow:inset 0 0 0 1px rgba(67,63,59,.3)}
+.b-line{background:transparent;color:var(--t1);box-shadow:inset 0 0 0 1px rgba(30,50,90,.3)}
 /* 헤더 */
-.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(250,248,245,.86);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-.hd.sc{border-color:rgba(67,63,59,.12)}
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(247,249,254,.86);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+.hd.sc{border-color:rgba(30,50,90,.12)}
 .hd .wrap{display:flex;align-items:center;height:64px;gap:24px}
 .logo{display:flex;align-items:center;gap:8px;font:500 19px var(--sans);color:var(--t1);letter-spacing:-.03em}
 .logo svg{width:20px;height:20px}
@@ -69,7 +69,7 @@ img{max-width:100%;display:block}
 .marq{overflow:hidden;margin-top:56px;mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
 .mtrack{display:flex;gap:56px;width:max-content;animation:mq 42s linear infinite}
 @keyframes mq{to{transform:translateX(-50%)}}
-.mtrack span{font:500 21px var(--sans);color:#6E6963;letter-spacing:-.02em;white-space:nowrap}
+.mtrack span{font:500 21px var(--sans);color:#56627A;letter-spacing:-.02em;white-space:nowrap}
 .mtrack span.s{font-family:var(--serif);font-weight:400}
 /* 벤토 */
 .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
@@ -78,12 +78,12 @@ img{max-width:100%;display:block}
 .card .lab{display:flex;align-items:center;font-size:13px;margin-bottom:10px}
 .card .ttl{font-family:var(--serif);font-size:clamp(24px,2.1vw,31px);line-height:1.2;letter-spacing:-.025em}
 .c-photo{color:#fff}
-.c-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.45) saturate(1.15) contrast(1.02) brightness(.82)}
-.c-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(168,64,15,.15),rgba(36,21,16,.55))}
+.c-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.05) brightness(.8)}
+.c-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(37,99,235,.16),rgba(8,28,74,.62))}
 .c-photo>*:not(img){position:relative;z-index:1}
 .c-photo>.credit{position:absolute;z-index:2}
 .c-photo .big{font-family:var(--sans);font-weight:500;font-size:clamp(30px,3vw,42px);letter-spacing:-.04em;line-height:1.1;position:absolute;left:32px;right:32px;top:42%;z-index:1}
-.c-brown{background:var(--brown);color:#fff}
+.c-navy{background:var(--navy);color:#fff}
 .c-ink{background:var(--ink);color:#fff}
 .c-cream{background:var(--cream2);color:var(--t1)}
 .card .lab.w{color:var(--w2)}
@@ -94,7 +94,7 @@ img{max-width:100%;display:block}
 .orb circle.r{fill:none;stroke:rgba(255,255,255,.12)}
 .orb path{fill:none;stroke:rgba(255,255,255,.45);stroke-width:1;stroke-dasharray:3 4;animation:dash 6s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-70}}
-.orb .n{fill:#bfb6ae}.orb .hub{fill:var(--or)}
+.orb .n{fill:#a9bbe0}.orb .hub{fill:var(--or)}
 .orb .lbl{fill:rgba(255,255,255,.75);font:300 11px var(--sans)}
 .pulse{animation:pl 2.4s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
 @keyframes pl{0%,100%{opacity:1}50%{opacity:.35}}
@@ -115,43 +115,43 @@ img{max-width:100%;display:block}
 .icons svg{width:20px;height:20px}
 .more{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--w2);border-top:1px solid rgba(255,255,255,.12);padding-top:16px;min-height:44px}
 /* 증거 격자 */
-.proof{display:grid;grid-template-columns:290px 1fr 290px;border:1px solid rgba(67,63,59,.14);margin-top:80px}
+.proof{display:grid;grid-template-columns:290px 1fr 290px;border:1px solid rgba(30,50,90,.14);margin-top:80px}
 @media (max-width:1000px){.proof{grid-template-columns:1fr}}
 .proof .l{background:var(--cream);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
 .proof .l b{display:block;font-weight:500;color:var(--t1);font-size:16px}
-.proof .l a{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(67,63,59,.15);padding:12px 0;font-size:14px;color:var(--t1);min-height:44px}
+.proof .l a{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(30,50,90,.15);padding:12px 0;font-size:14px;color:var(--t1);min-height:44px}
 .pgrid{display:grid;grid-template-columns:repeat(5,1fr)}
 @media (max-width:600px){.pgrid{grid-template-columns:repeat(3,1fr)}}
-.pgrid div{border-left:1px solid rgba(67,63,59,.1);border-bottom:1px solid rgba(67,63,59,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:108px;text-align:center;padding:10px}
+.pgrid div{border-left:1px solid rgba(30,50,90,.1);border-bottom:1px solid rgba(30,50,90,.1);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:108px;text-align:center;padding:10px}
 .pgrid b{font:500 26px var(--sans);color:var(--t1);letter-spacing:-.03em}
 .pgrid b small{font-size:.55em}
 .pgrid span{font-size:12.5px;color:var(--t3);margin-top:2px}
-.pgrid .nm{font-family:var(--serif);font-size:19px;color:#5f5a54}
+.pgrid .nm{font-family:var(--serif);font-size:19px;color:#4A5670}
 .proof .r{position:relative;min-height:320px;color:#fff;overflow:hidden}
-.proof .r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.35) brightness(.7)}
+.proof .r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.66)}
 .proof .r div{position:absolute;left:24px;right:24px;bottom:22px}
 .proof .r b{font:500 30px/1.1 var(--sans);letter-spacing:-.03em;display:block}
 /* 섹션 머리 */
 .shead{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;padding-top:clamp(90px,10vw,140px);margin-bottom:44px;border-top:1px solid transparent;position:relative}
-.shead::before{content:"";position:absolute;top:clamp(46px,5vw,70px);left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(67,63,59,.18),transparent)}
+.shead::before{content:"";position:absolute;top:clamp(46px,5vw,70px);left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(30,50,90,.18),transparent)}
 .shead p{font-size:16px;color:var(--t3);max-width:30em}
 @media (max-width:800px){.shead{grid-template-columns:1fr}}
 /* 아코디언 + 패널 */
 .feat{display:grid;grid-template-columns:540px 1fr;gap:var(--gap)}
 @media (max-width:1000px){.feat{grid-template-columns:1fr}}
 .acc{background:var(--cream);padding:24px 40px}
-.acc button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(67,63,59,.13);padding:20px 0;cursor:pointer;font:inherit;color:inherit}
+.acc button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(30,50,90,.13);padding:20px 0;cursor:pointer;font:inherit;color:inherit}
 .acc button:last-child{border-bottom:0}
-.acc .t{display:flex;align-items:center;font-family:var(--serif);font-size:clamp(20px,1.8vw,25px);color:#6b655f;letter-spacing:-.02em;transition:color .3s}
-.acc .t .sq{background:#cfc8bf;transition:background .3s}
+.acc .t{display:flex;align-items:center;font-family:var(--serif);font-size:clamp(20px,1.8vw,25px);color:#56627A;letter-spacing:-.02em;transition:color .3s}
+.acc .t .sq{background:#b9c6de;transition:background .3s}
 .acc .d{font-size:14.5px;color:var(--t3);margin:10px 0 0 16px;display:none}
-.acc .bar{height:2px;background:rgba(67,63,59,.1);margin:14px 0 0 16px;display:none}
+.acc .bar{height:2px;background:rgba(30,50,90,.1);margin:14px 0 0 16px;display:none}
 .acc .bar i{display:block;height:100%;width:0;background:var(--or)}
 .acc button.on .t{color:var(--t1)}.acc button.on .t .sq{background:var(--or)}
 .acc button.on .d,.acc button.on .bar{display:block}
 .acc button.on .bar i{animation:prog 7s linear forwards}
 @keyframes prog{to{width:100%}}
-.panel{background:var(--brown);color:#fff;position:relative;min-height:540px;overflow:hidden}
+.panel{background:var(--navy);color:#fff;position:relative;min-height:540px;overflow:hidden}
 .panel .vz{position:absolute;inset:32px 32px 140px}
 .panel .vz>div{position:absolute;inset:0;opacity:0;transition:opacity .6s}
 .panel .vz>div.on{opacity:1}
@@ -161,44 +161,48 @@ img{max-width:100%;display:block}
 .panel .foot .ttl{font-family:var(--serif);font-size:clamp(24px,2.3vw,34px);letter-spacing:-.025em;margin-top:8px}
 /* 히트 */
 .heat{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;margin-bottom:6px}
-.heat i{aspect-ratio:1;background:#3a2a22}
+.heat i{aspect-ratio:1;background:#1B2B55}
 .hrow{display:grid;grid-template-columns:62px 1fr 38px;gap:10px;align-items:center;font-size:12.5px;color:var(--w3);margin-bottom:6px}
 .big68{font-family:var(--serif);font-size:clamp(46px,4vw,60px);line-height:1;color:#fff;margin-top:18px}
 .big68 small{font-family:var(--sans);font-size:14px;color:var(--w2);margin-left:8px;letter-spacing:0}
 /* 도구 아이콘 */
-.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;position:absolute;left:32px;right:32px;top:32px}
+.week{display:grid;gap:6px;margin-bottom:auto;padding-bottom:22px}
+.card:has(.week){justify-content:flex-start}
+.week div{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;background:#fff;padding:9px 12px;font-size:13.5px;color:var(--t2)}
+.week b{font-weight:500;color:#fff;background:linear-gradient(135deg,#3B82F6,#1E40AF);text-align:center;padding:4px 0;font-size:13px}
+.tools{display:none}
 .tools span{aspect-ratio:1;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12.5px;color:var(--t2)}
 .tools svg{width:24px;height:24px}
 /* 대시보드 */
 .prod{display:grid;grid-template-columns:1.85fr 1fr;gap:clamp(30px,4vw,60px);align-items:start;margin-top:110px}
 @media (max-width:1000px){.prod{grid-template-columns:1fr}}
 .shot{background:var(--cream2);padding:48px 0 0 48px;overflow:hidden;position:relative}
-.app{background:#fff;box-shadow:0 30px 70px -30px rgba(36,21,16,.35);font-size:13px;color:var(--t2);min-width:700px}
+.app{background:#fff;box-shadow:0 30px 70px -30px rgba(8,28,74,.35);font-size:13px;color:var(--t2);min-width:700px}
 .app .bar{display:flex;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid #eee}
-.app .bar i{width:10px;height:10px;border-radius:50%;background:#e0dbd4}
+.app .bar i{width:10px;height:10px;border-radius:50%;background:#d5ddea}
 .app .bar i:nth-child(1){background:#ef6a5e}.app .bar i:nth-child(2){background:#f4be4f}.app .bar i:nth-child(3){background:#62c554}
-.app .url{margin-left:14px;background:#f5f3f0;padding:3px 12px;font-family:var(--mono);font-size:12.5px;color:var(--t3);flex:1;max-width:340px}
+.app .url{margin-left:14px;background:#f1f5fc;padding:3px 12px;font-family:var(--mono);font-size:12.5px;color:var(--t3);flex:1;max-width:340px}
 .app .body{display:grid;grid-template-columns:150px 1fr}
 .app .side{border-right:1px solid #eee;padding:14px;display:grid;gap:8px;align-content:start;font-size:12.5px}
 .app .side b{font-weight:500;color:var(--t1)}
-.app .side span.on{background:#f5f3f0;padding:3px 6px;color:var(--t1)}
+.app .side span.on{background:#f1f5fc;padding:3px 6px;color:var(--t1)}
 .app .main{padding:16px 18px}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
 .kpis div{border:1px solid #eee;padding:10px}
 .kpis b{display:block;font:500 22px var(--sans);color:var(--t1);letter-spacing:-.03em;margin-top:4px}
 .app table{width:100%;border-collapse:collapse;font-size:12.5px}
-.app th,.app td{text-align:left;padding:8px 6px;border-bottom:1px solid #f0eee9;font-weight:300}
+.app th,.app td{text-align:left;padding:8px 6px;border-bottom:1px solid #e8edf6;font-weight:300}
 .app th{color:var(--t3);font-weight:400;font-family:var(--mono);font-size:12.5px;text-transform:uppercase}
-.pill{display:inline-block;padding:1px 8px;font-size:12.5px;background:#f5f3f0}
-.pill.ok{background:#e8eddf;color:#4c5a3a}.pill.no{background:#f8e2da;color:#8a3412}.pill.wait{background:#f1ece4}
-.tabs{margin-top:30px;border-top:1px solid rgba(67,63,59,.15)}
-.tabs button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(67,63,59,.12);padding:16px 0;font:inherit;cursor:pointer;color:#6b655f;min-height:44px}
+.pill{display:inline-block;padding:1px 8px;font-size:12.5px;background:#f1f5fc}
+.pill.ok{background:#e8eddf;color:#4c5a3a}.pill.no{background:#f8e2da;color:#8a3412}.pill.wait{background:#e9eef8}
+.tabs{margin-top:30px;border-top:1px solid rgba(30,50,90,.15)}
+.tabs button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(30,50,90,.12);padding:16px 0;font:inherit;cursor:pointer;color:#56627A;min-height:44px}
 .tabs button b{font-weight:500;font-size:17px;display:block}
 .tabs button span{font-size:14px;display:none;margin-top:4px;color:var(--t3)}
 .tabs button.on{color:var(--t1);box-shadow:inset 0 2px 0 var(--or)}
 .tabs button.on span{display:block}
 /* 마크 */
-.mark{background:var(--brown);color:#fff;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;margin-top:110px;min-height:460px;overflow:hidden}
+.mark{background:var(--navy);color:#fff;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;margin-top:110px;min-height:460px;overflow:hidden}
 @media (max-width:900px){.mark{grid-template-columns:1fr}}
 .mark .lat{height:100%;min-height:340px;position:relative}
 .mark .lat svg{position:absolute;inset:0;width:100%;height:100%}
@@ -209,7 +213,7 @@ img{max-width:100%;display:block}
 .car::-webkit-scrollbar{display:none}
 .car .card{flex:0 0 min(400px,82vw);scroll-snap-align:start;min-height:440px}
 .carnav{display:flex;gap:8px}
-.carnav button{width:44px;height:44px;border:1px solid rgba(67,63,59,.25);background:#fff;cursor:pointer;font-size:16px;color:var(--t1)}
+.carnav button{width:44px;height:44px;border:1px solid rgba(30,50,90,.25);background:#fff;cursor:pointer;font-size:16px;color:var(--t1)}
 .card .tag2{position:absolute;left:32px;top:32px;font-family:var(--mono);font-size:12.5px;color:var(--w2)}
 .card .sm{font-size:14px;margin-top:8px;color:var(--w2)}
 .c-cream .sm,.c-cream .tag2{color:var(--t3)}
@@ -217,9 +221,9 @@ img{max-width:100%;display:block}
 .trust{display:grid;grid-template-columns:1fr 1.25fr;gap:var(--gap)}
 @media (max-width:900px){.trust{grid-template-columns:1fr}}
 .iso{font-family:var(--serif);font-size:clamp(54px,6vw,84px);line-height:1;letter-spacing:-.04em}
-.rates{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid rgba(67,63,59,.14);margin-top:var(--gap)}
+.rates{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(30,50,90,.14);margin-top:var(--gap)}
 @media (max-width:800px){.rates{grid-template-columns:repeat(2,1fr)}}
-.rates div{padding:20px;border-right:1px solid rgba(67,63,59,.1)}
+.rates div{padding:20px;border-right:1px solid rgba(30,50,90,.1)}
 .rates b{display:block;font:500 30px var(--sans);color:var(--t1);letter-spacing:-.03em}
 .rates span{font-size:13px;color:var(--t3)}
 .rates .dots{display:flex;gap:3px;margin-top:8px}.rates .dots i{width:8px;height:8px;background:var(--or)}
@@ -230,11 +234,11 @@ img{max-width:100%;display:block}
 .ppl .top p{font-size:14px;color:var(--t2);line-height:1.6}
 .ppl .top .btn{align-self:flex-start;min-height:40px;padding:8px 14px;font-size:13px}
 .ppl .ph{position:relative;aspect-ratio:4/3;overflow:hidden;color:#fff}
-.ppl .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.4) brightness(.62)}
+.ppl .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.6)}
 .ppl .ph b{position:absolute;left:18px;bottom:14px;font:500 28px var(--serif);letter-spacing:-.02em}
-.ppl .ck{font-size:12.5px;border:1px solid rgba(67,63,59,.3);padding:1px 8px;align-self:flex-start}
+.ppl .ck{font-size:12.5px;border:1px solid rgba(30,50,90,.3);padding:1px 8px;align-self:flex-start}
 /* 최종 CTA */
-.final{background:var(--brown2);color:#fff;margin-top:110px;padding:clamp(40px,6vw,80px) clamp(24px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.final{background:var(--navy2);color:#fff;margin-top:110px;padding:clamp(40px,6vw,80px) clamp(24px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
 @media (max-width:900px){.final{grid-template-columns:1fr}}
 .final p{color:var(--w2);margin-top:18px;max-width:28em}
 .final form{display:flex;margin-top:30px;max-width:480px}
@@ -251,15 +255,15 @@ img{max-width:100%;display:block}
 .ft .cols a.s{display:block;font-size:14px;color:var(--t2);padding:11px 0}
 .badges{display:grid;gap:14px;margin-top:30px}
 .badges div{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--t3)}
-.badges i{width:30px;height:30px;border:1px solid rgba(67,63,59,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;color:var(--t1)}
-.ft .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(67,63,59,.14);margin-top:70px;padding-top:22px;font-size:13px}
-.status{display:inline-flex;align-items:center;gap:6px;background:#fff;padding:2px 10px;border:1px solid rgba(67,63,59,.15)}
+.badges i{width:30px;height:30px;border:1px solid rgba(30,50,90,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:13px;color:var(--t1)}
+.ft .bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(30,50,90,.14);margin-top:70px;padding-top:22px;font-size:13px}
+.status{display:inline-flex;align-items:center;gap:6px;background:#fff;padding:2px 10px;border:1px solid rgba(30,50,90,.15)}
 .status i{width:7px;height:7px;border-radius:50%;background:#3e9a4f;animation:pl 2s infinite}
 /* 떠 있는 바 */
 .float{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);z-index:40;background:var(--ink2);color:#fff;display:flex;align-items:center;gap:10px;padding:6px;transition:transform .5s var(--ease);max-width:calc(100vw - 24px)}
 .float.on{transform:translate(-50%,0)}
 .float .fm{width:200px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
-.float .fm div{display:flex;gap:22px;width:max-content;animation:mq 18s linear infinite;font-size:13px;color:#a8a29b}
+.float .fm div{display:flex;gap:22px;width:max-content;animation:mq 18s linear infinite;font-size:13px;color:#a9b6d0}
 .float .btn{min-height:44px;font-size:14px;padding:8px 16px}
 .av{display:flex}.av i{width:28px;height:28px;border-radius:50%;border:2px solid #fff;margin-left:-8px;display:flex;align-items:center;justify-content:center;font:500 12px var(--serif);font-style:normal;color:#fff}
 .av i:first-child{margin-left:0}
@@ -268,16 +272,52 @@ img{max-width:100%;display:block}
 .sheet{position:fixed;inset:0;z-index:90;background:rgba(18,17,16,.55);display:flex;justify-content:flex-end}
 .sheet>div{background:var(--paper);width:min(560px,100%);height:100%;overflow:auto;padding:clamp(28px,4vw,48px);animation:sl .5s var(--ease)}
 @keyframes sl{from{transform:translateX(40px);opacity:0}}
-.sheet .x{float:right;width:44px;height:44px;border:1px solid rgba(67,63,59,.25);background:#fff;font-size:20px;cursor:pointer;color:var(--t1)}
+.sheet .x{float:right;width:44px;height:44px;border:1px solid rgba(30,50,90,.25);background:#fff;font-size:20px;cursor:pointer;color:var(--t1)}
 .sheet dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14.5px;margin:24px 0}
 .sheet dt{color:var(--t3)}.sheet dd{margin:0;color:var(--t1)}
 .f{display:block;font-size:13.5px;color:var(--t2);margin-top:16px}
-.f input,.f select{display:block;width:100%;margin-top:6px;border:1px solid rgba(67,63,59,.3);background:#fff;padding:11px 12px;font:300 16px var(--sans);color:var(--t1);border-radius:0}
+.f input,.f select{display:block;width:100%;margin-top:6px;border:1px solid rgba(30,50,90,.3);background:#fff;padding:11px 12px;font:300 16px var(--sans);color:var(--t1);border-radius:0}
 .chk{display:flex;gap:10px;margin-top:18px;font-size:13.5px;align-items:flex-start}
 .chk input{width:20px;height:20px;accent-color:var(--or-t);flex:none}
 .stbl{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px}
-.stbl td,.stbl th{text-align:left;padding:9px 6px;border-bottom:1px solid rgba(67,63,59,.12);font-weight:300}
+.stbl td,.stbl th{text-align:left;padding:9px 6px;border-bottom:1px solid rgba(30,50,90,.12);font-weight:300}
 .stbl th{font-family:var(--mono);font-size:12.5px;color:var(--t3);font-weight:400}
+
+/* 타임테이블 */
+.ttwrap{background:#fff;border:1px solid rgba(30,50,90,.12);padding:24px;overflow-x:auto}
+.ttgrid{display:grid;grid-template-columns:56px repeat(3,minmax(200px,1fr));column-gap:10px;position:relative;min-width:720px}
+.ttcol{position:relative;height:calc(14 * 52px)}
+.ttcol .hd2{position:absolute;top:-58px;left:0;right:0;background:linear-gradient(135deg,#1E40AF,#0E2A6B);color:#fff;padding:10px 12px;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.ttcol .hd2 em{font-style:normal;font-size:12.5px;background:#F59E0B;color:#0B1530;padding:1px 8px}
+.ttb{position:absolute;left:0;right:0;padding:6px 10px;font-size:13px;line-height:1.35;overflow:hidden;color:#fff}
+.ttb small{display:block;font-size:12.5px;opacity:.9}
+.ttb.t1{background:linear-gradient(135deg,#3B82F6,#1D4ED8)}.ttb.t2{background:linear-gradient(135deg,#14B8C9,#0E7490)}.ttb.t3{background:linear-gradient(135deg,#FB923C,#C2410C)}.ttb.t4{background:linear-gradient(135deg,#1E40AF,#0B1E5B)}
+.ttb.g{background:#FEF3C7;color:#713F12}.ttb.m{background:#EEF2F8;color:#44506B}.ttb.r{background:transparent;border:1px dashed #b9c6de;color:#56627A}
+.tthr{position:relative;height:calc(14 * 52px);font:400 12.5px var(--mono);color:#56627A}
+.tthr span{position:absolute;left:0}
+.ttlines{position:absolute;left:56px;right:0;top:0;bottom:0;pointer-events:none;background:repeating-linear-gradient(180deg,rgba(30,50,90,.08) 0 1px,transparent 1px 52px)}
+.ttleg{display:flex;gap:16px;flex-wrap:wrap;margin-top:76px;font-size:13px;color:var(--t2)}
+.ttleg span{display:flex;align-items:center;gap:6px}.ttleg i{width:12px;height:12px;display:inline-block}
+.ttgrid{margin-top:58px}
+/* 자료 갤러리 */
+.gal{display:grid;grid-template-columns:repeat(4,1fr) 1.1fr;gap:var(--gap)}
+@media (max-width:1100px){.gal{grid-template-columns:repeat(2,1fr)}}
+.gal a{display:block;background:#fff;border:1px solid rgba(30,50,90,.12);transition:transform .4s var(--ease)}
+.gal a:hover{transform:translateY(-4px)}
+.gal img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.gal span{display:block;padding:10px 12px;font-size:13.5px;color:var(--t2)}
+.gal .pdf{background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:24px;min-height:100%}
+.gal .pdf b{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.25}
+.gal .pdf span{padding:0;color:var(--w2)}
+/* FAQ */
+.faq{border-top:1px solid rgba(30,50,90,.15)}
+.faq details{border-bottom:1px solid rgba(30,50,90,.12)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:20px 0;font-family:var(--serif);font-size:clamp(19px,1.7vw,24px);color:var(--t1);min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";margin-left:auto;font-family:var(--sans);font-size:22px;color:var(--t3);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary i{font-style:normal;width:28px;height:28px;background:var(--or-t);color:#fff;display:flex;align-items:center;justify-content:center;font:500 14px var(--sans);flex:none}
+.faq p{padding:0 0 22px 42px;color:var(--t2);max-width:46em}
 /* 등장 */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -297,14 +337,14 @@ img{max-width:100%;display:block}
 <div class="frame">
 <header class="hd" id="hd"><div class="wrap">
   <a class="logo" href="#top"><svg><use href="#mk"/></svg>R.Start</a>
-  <nav class="nav" aria-label="주 메뉴"><a href="#sv">사역</a><a href="#dash">예측 기록부</a><a href="#sem">세미나·책</a><a href="#ppl">강사</a><a href="#news">소식 받기</a></nav>
+  <nav class="nav" aria-label="주 메뉴"><a href="#sv">사역</a><a href="#tt">제주 세미나</a><a href="#sem">세미나·책</a><a href="#mat">자료</a><a href="#ppl">강사</a><a href="#faq">묻고 답하기</a></nav>
   <a class="btn b-line" href="#news">소식 받기</a>
   <button class="btn b-ink" onclick="openSheet()">세미나 신청</button>
 </div></header>
 
 <main id="top">
   <section class="wrap hero">
-    <a class="eyebrow mono rv" href="#sem"><span class="sq"></span>제주 집중 과정 · 3월 29일 · 신청 중</a>
+    <a class="eyebrow mono rv" href="#sem"><span class="sq"></span>제주 · 3월 29일(월)~31일(수) · 선착순 30명 · 신청 중</a>
     <h1 class="sf h1 rv d1" style="margin-top:20px">미래를 읽고, 오늘 섬기는 목회.</h1>
     <p class="sub rv d2">미래예측과 AI자비스비서로 세우는, 근거 있는 목회.</p>
     <div class="cta rv d3"><button class="btn b-ink" onclick="openSheet()">세미나 신청 <svg><use href="#ar"/></svg></button><a class="btn b-cream" href="#sv">연구소가 하는 일 <svg><use href="#ar"/></svg></a></div>
@@ -313,7 +353,7 @@ img{max-width:100%;display:block}
 
   <section class="wrap bento" style="margin-top:48px">
     <div class="card c-photo rv"><img src="img/home.jpg" alt="유리로 지은 예배당"><span class="credit">사진: Carol M. Highsmith · 퍼블릭 도메인</span><div class="big">미래를 읽는 교회.</div><div class="lab w" style="color:#fff"><span class="sq"></span>2050 한국교회 전망 위에서</div><div class="ttl">오늘의 목회를 다시 세웁니다.</div></div>
-    <div class="card c-brown rv d1"><div class="viz"><svg viewBox="0 0 400 320" class="orb" id="orb" role="img" aria-label="연구소가 읽는 9가지 신호 궤도 도식"></svg></div><div class="lab w"><span class="sq"></span>연구소가 읽는 것</div><div class="ttl">아홉 가지 신호, 모두 확인.</div></div>
+    <div class="card c-navy rv d1"><div class="viz"><svg viewBox="0 0 400 320" class="orb" id="orb" role="img" aria-label="연구소가 읽는 9가지 신호 궤도 도식"></svg></div><div class="lab w"><span class="sq"></span>연구소가 읽는 것</div><div class="ttl">아홉 가지 신호, 모두 확인.</div></div>
     <div class="card c-ink rv d2">
       <div class="agent"><div class="lab w"><span class="sq pulse"></span>AI자비스비서 · 일하는 중</div><p class="q" id="typed" aria-live="off"></p><ul class="steps" id="steps"><li><i></i>교회 자료 읽는 중</li><li><i></i>초안 작성 중</li><li><i></i>목회자 확인 기다리는 중</li></ul></div>
       <div class="icons" aria-hidden="true" id="aicons"></div>
@@ -346,9 +386,9 @@ img{max-width:100%;display:block}
       <p style="font-size:12.5px;color:var(--w3);margin-top:8px">출처: 목회데이터연구소 넘버즈 337호(2026-02)</p>
     </div>
     <div class="card c-photo rv d1"><img src="img/seminars.jpg" alt="성경과 노트, 스마트폰"><span class="credit">사진: Ben White · CC0</span>
-      <div style="position:absolute;left:32px;right:32px;top:32px;background:rgba(36,21,16,.72);padding:18px;backdrop-filter:blur(4px)"><div class="lab w" style="margin:0"><span class="sq"></span>자비스에게 맡긴 일</div><p style="background:rgba(255,255,255,.1);padding:10px 12px;margin-top:12px;font-size:14px">"주일 주보 초안과 심방 기록을 정리해 줘"</p><ul class="steps"><li class="ok"><i></i>지난주 주보 형식 읽기</li><li class="ok"><i></i>심방 메모 12건 정리</li><li class="run"><i></i>목사님 확인 요청</li></ul></div>
+      <div style="position:absolute;left:32px;right:32px;top:32px;background:rgba(8,28,74,.72);padding:18px;backdrop-filter:blur(4px)"><div class="lab w" style="margin:0"><span class="sq"></span>자비스에게 맡긴 일</div><p style="background:rgba(255,255,255,.1);padding:10px 12px;margin-top:12px;font-size:14px">"주일 주보 초안과 심방 기록을 정리해 줘"</p><ul class="steps"><li class="ok"><i></i>지난주 주보 형식 읽기</li><li class="ok"><i></i>심방 메모 12건 정리</li><li class="run"><i></i>목사님 확인 요청</li></ul></div>
       <div class="lab w" style="color:#fff"><span class="sq"></span>비서 모드</div><div class="ttl">일손은 비서에게, 결정은 목회자에게.</div></div>
-    <div class="card c-cream rv d2"><div class="tools" id="tools"></div><div class="lab" style="color:var(--t3)"><span class="sq"></span>자비스가 돕는 일 12가지</div><div class="ttl">이미 하던 일 그대로.</div></div>
+    <div class="card c-cream rv d2"><div class="week" id="week"></div><div class="lab" style="color:var(--t3)"><span class="sq"></span>목회자의 한 주, 다섯 자리</div><div class="ttl">초안은 비서가, 결정은 목회자가.</div></div>
   </section>
 
   <section class="wrap prod" id="dash">
@@ -367,6 +407,13 @@ img{max-width:100%;display:block}
       <div class="tabs rv d2" id="tabs"><button class="on"><b>적는다</b><span>예측 문장, 대상, 기한, 판정 조건, 확인할 자료원을 먼저 적습니다.</span></button><button><b>잠근다</b><span>게시한 뒤에는 문장과 조건을 바꿀 수 없습니다.</span></button><button><b>판정한다</b><span>기한이 지나면 다음 호에서 적중 · 실패 · 유보로 판정합니다.</span></button></div></div>
   </section>
 
+
+  <section class="wrap" id="tt">
+    <div class="shead"><h2 class="sf h2 rv">사흘, 네 묶음,<br>교육 19시간.</h2><p class="rv d1">3월 29일(월) ~ 31일(수) · 제주. 듣고 적는 세미나가 아닙니다. 내 노트북으로, 우리 교회 자료로, 그 자리에서 만들고 바로 눈으로 확인합니다. 실습 13회.</p></div>
+    <div class="ttwrap rv"><div class="ttgrid" id="ttgrid" role="img" aria-label="사흘 타임테이블: 1일차 교육 6시간, 2일차 7.5시간, 3일차 5.5시간"></div>
+      <div class="ttleg" id="ttleg"></div></div>
+    <p class="mono rv" style="margin-top:12px">출처: 안내서_제주_AI자비스비서세미나 5쪽 · 시각은 현장 사정에 따라 달라질 수 있습니다</p>
+  </section>
   <section class="wrap"><div class="mark rv">
     <div class="lat"><svg viewBox="0 0 600 460" id="lat" aria-hidden="true"></svg></div>
     <div class="tx"><span class="mono" style="color:var(--w2)"><span class="sq"></span>미래교회연구소</span><h2 class="sf h2" style="color:#fff;margin-top:14px">하나의 표, 하나의 사명.<br>미래를 읽고 오늘 섬깁니다.</h2><p>미래예측과 AI자비스비서를 도구로 삼아 한국교회와 이민교회, 선교지의 목회자와 성도를 섬기는 연구·교육 사역 기관입니다. 국내 10개 지역과 해외 10개국으로 섬김을 넓힙니다.</p><a class="btn b-white" style="margin-top:28px" href="#ppl">강사 보기 <svg><use href="#ar"/></svg></a></div>
@@ -378,9 +425,9 @@ img{max-width:100%;display:block}
   </section>
 
   <section class="wrap">
-    <div class="shead"><h2 class="sf h2 rv">근거 있는 글만 씁니다.<br>집필 원칙을 공개합니다.</h2><p class="rv d1">관측된 사실, 저자의 해석, 조건부 전망을 문장마다 나눠 표시합니다. 숫자에는 출처와 기준 시점을 함께 적습니다.</p></div>
+    <div class="shead"><h2 class="sf h2 rv">AI는 목회자를<br>대신하지 않습니다.</h2><p class="rv d1">성도를 만나는 사람도, 결정하는 사람도 목회자입니다. 연구소의 글은 사실·해석·전망을 나눠 쓰고, 세미나는 세 가지 원칙 위에서 AI를 씁니다.</p></div>
     <div class="trust">
-      <div class="card c-brown rv" style="min-height:420px"><div class="viz" style="bottom:170px"><svg viewBox="0 0 400 260" class="orb" id="orb2" aria-hidden="true"></svg></div><div class="lab w"><span class="sq"></span>집필 규칙</div><div class="iso">● ◆ ▲</div><p style="color:var(--w2);margin-top:10px;font-size:14px">사실 · 해석 · 전망을 섞지 않습니다</p></div>
+      <div class="card c-navy rv" style="min-height:420px"><div class="viz" style="bottom:170px"><svg viewBox="0 0 400 260" class="orb" id="orb2" aria-hidden="true"></svg></div><div class="lab w"><span class="sq"></span>집필 규칙</div><div class="iso">● ◆ ▲</div><p style="color:var(--w2);margin-top:10px;font-size:14px">사실 · 해석 · 전망을 섞지 않습니다</p></div>
       <div class="card c-photo rv d1" style="min-height:420px"><img src="img/book.jpg" alt="펼친 성경"><span class="credit">사진: Aaron Burden · CC0</span><div class="lab w" style="color:#fff"><span class="sq"></span>『2027 한국교회 예측 시나리오』 집필 규칙</div><p class="ttl" style="max-width:20em">"조사 대상이나 문항이 다른 자료는 하나의 추세로 잇지 않는다."</p><p style="font-size:13px;color:var(--w2);margin-top:12px">세부 목차 · 집필 규칙 ①</p></div>
     </div>
     <div class="rates rv" id="rates"></div>
@@ -391,6 +438,15 @@ img{max-width:100%;display:block}
     <div class="ppl" id="pplg"></div>
   </section>
 
+
+  <section class="wrap" id="mat">
+    <div class="shead"><h2 class="sf h2 rv">세미나 자료,<br>미리 보세요.</h2><p class="rv d1">실제로 배포한 포스터와 카드뉴스, 7쪽 안내서입니다. 단톡방이나 교회 게시판에 그대로 나눠 주셔도 됩니다.</p></div>
+    <div class="gal rv" id="gal"></div>
+  </section>
+  <section class="wrap" id="faq">
+    <div class="shead"><h2 class="sf h2 rv">미리 궁금하실 것들.</h2><p class="rv d1">안내서의 자주 묻는 질문입니다. 더 궁금한 점은 소식 받기로 남겨 주세요.</p></div>
+    <div class="faq rv" id="faql"></div>
+  </section>
   <section class="wrap" id="news"><div class="final rv">
     <div><span class="mono" style="color:var(--w2)"><span class="sq"></span>소식 받기</span><h2 class="sf h2" style="color:#fff;margin-top:14px">다시 일어서는 교회를<br>미리 준비하세요.</h2><p>세미나 일정, 새 예측 시나리오, 연구 노트를 메일로 보내 드립니다.</p>
       <form onsubmit="event.preventDefault();this.nextElementSibling.hidden=false"><label style="position:absolute;left:-9999px" for="em">이메일</label><input id="em" type="email" required placeholder="name@church.kr"><button class="btn b-or">구독하기 <svg><use href="#ar"/></svg></button></form><p class="ok" hidden>시안 화면입니다. 실제로 접수되지는 않습니다.</p></div>
@@ -406,13 +462,13 @@ img{max-width:100%;display:block}
     <div><h5>사역</h5><a class="s" href="#sv">미래예측 목회전략</a><a class="s" href="#sv">AI자비스비서</a><a class="s" href="#sv">목회계획 워크숍</a><a class="s" href="#sv">건강한 재정 사역</a><a class="s" href="#sv">세미나·교육 체계</a></div>
     <div><h5>세미나</h5><a class="s" href="#sem">AI 자비스 비서 세미나</a><a class="s" href="#sem">목회계획 워크숍</a><a class="s" href="#sem">재정 청지기 교실</a><a class="s" href="#sem">선교사 AI 특강</a></div>
     <div><h5>책</h5><a class="s" href="#sem">2027 예측 시나리오</a><a class="s" href="#sem">2028 목회전략</a><a class="s" href="#dash">예측 기록부</a></div>
-    <div><h5>자료</h5><a class="s" href="#top">한 장 요약 (PDF)</a><a class="s" href="#top">목차 가안 (PDF)</a><a class="s" href="#top">수강생 자료 · 기수 암호</a><button class="s" style="background:none;border:0;padding:11px 0;font:inherit;font-size:14px;color:var(--t2);cursor:pointer;text-align:left" onclick="openPrivacy()">개인정보 처리방침</button></div>
+    <div><h5>자료</h5><a class="s" href="guide_jeju.pdf">제주 세미나 안내서 (PDF)</a><a class="s" href="#mat">포스터·카드뉴스</a><a class="s" href="#top">목차 가안 (PDF)</a><a class="s" href="#top">수강생 자료 · 기수 암호</a><button class="s" style="background:none;border:0;padding:11px 0;font:inherit;font-size:14px;color:var(--t2);cursor:pointer;text-align:left" onclick="openPrivacy()">개인정보 처리방침</button></div>
   </div>
   <div class="bot"><span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><b style="font-weight:500;color:var(--t1)">R.Start</b><span style="color:var(--t3)">미래교회연구소 · Future Church Institute</span><span class="status"><i></i>시안 검토 중</span></span><span style="color:var(--t3)">© 2027 R.Start · 사진 출처는 각 사진 위에 표기</span></div>
 </div></footer>
 </div>
 
-<div class="float" id="float"><div class="fm"><div id="fmq"></div></div><button class="btn b-white" onclick="openSheet()" style="background:#2a2826;color:#fff">세미나 신청</button><a class="btn b-white" href="#news"><span class="av" aria-hidden="true"><i style="background:#3A1B10">최</i><i style="background:#6B2A10">문</i><i style="background:#A8400F">이</i></span>소식 받기</a></div>
+<div class="float" id="float"><div class="fm"><div id="fmq"></div></div><button class="btn b-white" onclick="openSheet()" style="background:#1e2c52;color:#fff">세미나 신청</button><a class="btn b-white" href="#news"><span class="av" aria-hidden="true"><i style="background:#0E2A6B">최</i><i style="background:#1E40AF">문</i><i style="background:#2563EB">이</i></span>소식 받기</a></div>
 
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="shtitle"><div id="shbody"></div></div>
 
@@ -438,8 +494,9 @@ let qi=0;function typeQ(){const el=$('#typed'),q=qs[qi%qs.length];const st=$$('#
 typeQ();
 const ic={doc:'<path d="M5 2h7l4 4v12H5z M12 2v4h4" />',cal:'<rect x="3" y="4" width="14" height="13"/><path d="M3 8h14M7 2v4M13 2v4"/>',mic:'<rect x="7" y="2" width="6" height="10" rx="3"/><path d="M4 9a6 6 0 0 0 12 0M10 15v3"/>',globe:'<circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c3 3 3 12 0 15M10 2.5c-3 3-3 12 0 15"/>',heart:'<path d="M10 17s-7-4.3-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 17 8c0 4.7-7 9-7 9z"/>',play:'<rect x="2" y="4" width="16" height="12"/><path d="M8 7.5v5l4-2.5z"/>',book:'<path d="M3 4h5a2 2 0 0 1 2 2v11a2 2 0 0 0-2-2H3zM17 4h-5a2 2 0 0 0-2 2v11a2 2 0 0 1 2-2h5z"/>',mail:'<rect x="2" y="4" width="16" height="12"/><path d="M2 5l8 6 8-6"/>',web:'<rect x="2" y="3" width="16" height="14"/><path d="M2 7h16"/><circle cx="5" cy="5" r=".6"/>',chart:'<path d="M3 17V3M3 17h14M6 13l3-4 3 2 4-6"/>',people:'<circle cx="7" cy="7" r="3"/><circle cx="14" cy="8" r="2.4"/><path d="M2 17c0-3 2.5-5 5-5s5 2 5 5M12 17c0-2 1.5-4 4-4"/>',coin:'<ellipse cx="10" cy="6" rx="6" ry="2.5"/><path d="M4 6v8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6M4 10c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5"/>'};
 const svgI=(k,c='currentColor')=>`<svg viewBox="0 0 20 20" fill="none" stroke="${c}" stroke-width="1.4" stroke-linejoin="round">${ic[k]}</svg>`;
-$('#aicons').innerHTML=['book','doc','cal','mail','globe','chart'].map(k=>`<span style="color:#d8cfc6">${svgI(k)}</span>`).join('');
-$('#tools').innerHTML=[['book','설교 자료'],['doc','주보'],['mail','공문'],['people','심방 기록'],['cal','교회 일정'],['mic','교안'],['play','교회 쇼츠'],['web','홈페이지'],['globe','번역'],['chart','통계 읽기'],['coin','재정 정리'],['heart','새가족']].map(([k,t],i)=>`<span>${svgI(k,['#A8400F','#3A1B10','#6B2A10','#57534E'][i%4])}${t}</span>`).join('');
+$('#aicons').innerHTML=['book','doc','cal','mail','globe','chart'].map(k=>`<span style="color:#c9d6ee">${svgI(k)}</span>`).join('');
+$('#week').innerHTML=[['행정','주보 · 공문 · 회의록 초안'],['심방','기록 정리 · 기도 제목 모으기'],['교육','우리 교회 눈높이 교안'],['소통','공지 · 홈페이지 · 짧은 영상'],['행사','점검표 · 안내문 · 순서지']].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('');
+if(0)$('#tools').innerHTML=[['book','설교 자료'],['doc','주보'],['mail','공문'],['people','심방 기록'],['cal','교회 일정'],['mic','교안'],['play','교회 쇼츠'],['web','홈페이지'],['globe','번역'],['chart','통계 읽기'],['coin','재정 정리'],['heart','새가족']].map(([k,t],i)=>`<span>${svgI(k,['#2563EB','#0E2A6B','#1E40AF','#44506B'][i%4])}${t}</span>`).join('');
 /* 증거 격자 */
 const pg=[['1,000<small>+</small>','함께한 목회자'],['10<small>곳</small>','국내 현장 도시'],['5<small>회</small>','해외 선교지 사역'],['1~5<small>기</small>','AI 설교 세미나'],['300<small>+</small>','목회계획 세미나'],['서울','',1],['용인','',1],['청주','',1],['전주','',1],['포항','',1],['대만','',1],['말레이시아','',1],['베트남','',1],['인도네시아','',1],['미국','',1]];
 $('#pgrid').innerHTML=pg.map(([a,b,n])=>n?`<div><span class="nm">${a}</span></div>`:`<div><b>${a}</b><span>${b}</span></div>`).join('');
@@ -454,8 +511,8 @@ $('#acc').innerHTML=SV.map((s,i)=>`<button aria-expanded="false" onclick="pick($
 const V=[];
 V[0]=`<svg viewBox="0 0 500 300" role="img" aria-label="출석 교인 약 645만(2015), 약 550만(2021), 2050 약 402만 전망 선"><g font-family="Noto Sans KR" font-size="12" fill="rgba(255,255,255,.6)"><text x="40" y="290">2015</text><text x="150" y="290">2021</text><text x="440" y="290">2050</text></g><path d="M30 270H480" stroke="rgba(255,255,255,.18)"/><path d="M55 70 L165 128" stroke="#E8590C" stroke-width="3" fill="none"/><path d="M165 128 C260 150 360 190 455 214" stroke="#fff" stroke-width="2" stroke-dasharray="6 6" fill="none"/><rect x="50" y="65" width="10" height="10" fill="#E8590C"/><rect x="160" y="123" width="10" height="10" fill="#E8590C"/><rect x="450" y="209" width="10" height="10" fill="none" stroke="#fff" stroke-width="2"/><g font-family="Noto Sans KR" font-size="14" fill="#fff"><text x="66" y="58">● 약 645만</text><text x="176" y="116">● 약 550만</text><text x="455" y="244" text-anchor="end">▲ 약 402만 (9.09%)</text></g></svg>`;
 V[1]=`<svg viewBox="0 0 500 300" role="img" aria-label="설교 사역 AI 사용 목회자 17%에서 58%로"><g font-family="Noto Sans KR" fill="#fff"><text x="40" y="40" font-size="13" fill="rgba(255,255,255,.65)">설교 사역에 AI를 쓰는 목회자 (넘버즈 329호)</text>${Array.from({length:100},(_,i)=>`<rect x="${40+(i%20)*13}" y="${70+Math.floor(i/20)*13}" width="10" height="10" fill="${i<17?'#E8590C':'rgba(255,255,255,.12)'}"/>`).join('')}${Array.from({length:100},(_,i)=>`<rect x="${40+(i%20)*13}" y="${170+Math.floor(i/20)*13}" width="10" height="10" fill="${i<58?'#E8590C':'rgba(255,255,255,.12)'}"/>`).join('')}<text x="320" y="110" font-size="36" font-family="Noto Serif KR">17 %</text><text x="320" y="130" font-size="12" fill="rgba(255,255,255,.6)">2년 전</text><text x="320" y="210" font-size="36" font-family="Noto Serif KR">58 %</text><text x="320" y="230" font-size="12" fill="rgba(255,255,255,.6)">최근 조사</text></g></svg>`;
-V[2]=`<svg viewBox="0 0 500 300" role="img" aria-label="한 해 52주 계획 격자 도식"><g font-family="Noto Sans KR" font-size="11" fill="rgba(255,255,255,.55)">${['1월','4월','7월','10월'].map((m,i)=>`<text x="${40+i*111}" y="40">${m}</text>`).join('')}</g>${Array.from({length:52*5},(_,i)=>{const w=Math.floor(i/5),d=i%5;const hot=[0,1,13,14,26,27,39,40,51].includes(w);const v=((w*7+d*3)%9);return `<rect x="${40+w*8.4}" y="${56+d*30}" width="6.6" height="24" fill="${hot?'#E8590C':v>6?'#A8400F':v>3?'#6B2A10':'rgba(255,255,255,.1)'}"/>`}).join('')}<g font-family="Noto Sans KR" font-size="12" fill="#fff"><text x="40" y="230">■ 돌아보기 · 분기 점검 · 한 해 짜기</text><text x="40" y="252" fill="rgba(255,255,255,.6)">도식 — 하루 8시간 워크숍에서 직접 채웁니다</text></g></svg>`;
-V[3]=`<svg viewBox="0 0 500 300" role="img" aria-label="가계, 헌금, 노후 준비 세 축 도식"><g font-family="Noto Sans KR" fill="#fff">${[['가계 재정',.72],['헌금·청지기',.55],['목회자 노후',.38]].map(([t,v],i)=>`<text x="40" y="${70+i*70}" font-size="15">${t}</text><rect x="40" y="${82+i*70}" width="420" height="16" fill="rgba(255,255,255,.1)"/><rect x="40" y="${82+i*70}" width="${420*v}" height="16" fill="${['#E8590C','#A8400F','#D98C74'][i]}"/>`).join('')}<text x="40" y="285" font-size="12" fill="rgba(255,255,255,.6)">도식 — 세 가지를 함께 세웁니다(막대 길이는 수치가 아님)</text></g></svg>`;
+V[2]=`<svg viewBox="0 0 500 300" role="img" aria-label="한 해 52주 계획 격자 도식"><g font-family="Noto Sans KR" font-size="11" fill="rgba(255,255,255,.55)">${['1월','4월','7월','10월'].map((m,i)=>`<text x="${40+i*111}" y="40">${m}</text>`).join('')}</g>${Array.from({length:52*5},(_,i)=>{const w=Math.floor(i/5),d=i%5;const hot=[0,1,13,14,26,27,39,40,51].includes(w);const v=((w*7+d*3)%9);return `<rect x="${40+w*8.4}" y="${56+d*30}" width="6.6" height="24" fill="${hot?'#E8590C':v>6?'#2563EB':v>3?'#1E40AF':'rgba(255,255,255,.1)'}"/>`}).join('')}<g font-family="Noto Sans KR" font-size="12" fill="#fff"><text x="40" y="230">■ 돌아보기 · 분기 점검 · 한 해 짜기</text><text x="40" y="252" fill="rgba(255,255,255,.6)">도식 — 하루 8시간 워크숍에서 직접 채웁니다</text></g></svg>`;
+V[3]=`<svg viewBox="0 0 500 300" role="img" aria-label="가계, 헌금, 노후 준비 세 축 도식"><g font-family="Noto Sans KR" fill="#fff">${[['가계 재정',.72],['헌금·청지기',.55],['목회자 노후',.38]].map(([t,v],i)=>`<text x="40" y="${70+i*70}" font-size="15">${t}</text><rect x="40" y="${82+i*70}" width="420" height="16" fill="rgba(255,255,255,.1)"/><rect x="40" y="${82+i*70}" width="${420*v}" height="16" fill="${['#E8590C','#2563EB','#F59E0B'][i]}"/>`).join('')}<text x="40" y="285" font-size="12" fill="rgba(255,255,255,.6)">도식 — 세 가지를 함께 세웁니다(막대 길이는 수치가 아님)</text></g></svg>`;
 V[4]=`<svg viewBox="0 0 500 300" role="img" aria-label="연구소에서 국내 10개 지역, 해외 10개국으로 이어지는 연결망">${(()=>{let h='';const cx=250,cy=140;for(let i=0;i<10;i++){const a=i/10*Math.PI*2,x=cx+90*Math.cos(a),y=cy+70*Math.sin(a);h+=`<path d="M${cx} ${cy}L${x} ${y}" stroke="rgba(255,255,255,.3)"/><rect x="${x-4}" y="${y-4}" width="8" height="8" fill="#E8590C"/>`;const a2=a+.31,x2=cx+200*Math.cos(a2),y2=cy+122*Math.sin(a2);h+=`<path d="M${x} ${y}L${x2} ${y2}" stroke="rgba(255,255,255,.18)" stroke-dasharray="3 4"/><rect x="${x2-3}" y="${y2-3}" width="6" height="6" fill="none" stroke="#fff"/>`}return h+`<rect x="${cx-10}" y="${cy-10}" width="20" height="20" fill="#fff"/>`})()}<g font-family="Noto Sans KR" font-size="12" fill="rgba(255,255,255,.75)"><text x="20" y="292">■ 국내 거점 10</text><text x="140" y="292">□ 해외 거점 10</text></g></svg>`;
 $('#vz').innerHTML=V.map(v=>`<div>${v}</div>`).join('');
 let cur=-1,timer;
@@ -464,28 +521,42 @@ function pick(i,user){cur=i;$$('#acc button').forEach((b,j)=>{b.classList.toggle
  clearTimeout(timer);if(!RM&&!user)timer=setTimeout(()=>pick((i+1)%5),7000);if(user&&!RM)timer=setTimeout(()=>pick((i+1)%5),12000)}
 pick(0);
 /* 히트 */
-$('#heat').innerHTML=[['40대 이하',59],['50대',60],['60대 이상',39]].map(([a,v])=>`<div class="hrow"><span>${a}</span><div class="heat">${Array.from({length:20},(_,k)=>`<i style="background:${k<Math.round(v/5)?['#E8590C','#C84A0D','#A8400F','#6B2A10'][k%4]:'#3a2a22'}"></i>`).join('')}</div><span style="color:#fff">${v}%</span></div>`).join('');
+$('#heat').innerHTML=[['40대 이하',59],['50대',60],['60대 이상',39]].map(([a,v])=>`<div class="hrow"><span>${a}</span><div class="heat">${Array.from({length:20},(_,k)=>`<i style="background:${k<Math.round(v/5)?['#E8590C','#3B82F6','#2563EB','#1E40AF'][k%4]:'#1B2B55'}"></i>`).join('')}</div><span style="color:#fff">${v}%</span></div>`).join('');
 /* 격자 마크 */
 (function(){let h='';for(let r=0;r<8;r++)for(let c=0;c<11;c++){const x=30+c*52,y=20+r*54,d=Math.hypot(c-5,r-3.5);const o=Math.max(.06,.5-d*.07);const hot=(c*3+r*5)%13===0;h+=`<path d="M${x} ${y+40}V${y+12}Q${x} ${y} ${x+12} ${y}H${x+40}" fill="none" stroke="${hot?'#E8590C':'rgba(255,255,255,'+o+')'}" stroke-width="1.2"/>`}
  h+=`<g transform="translate(266 186)"><rect width="34" height="34" fill="#E8590C"/><path d="M44 0h34v34M0 44v34h34M44 78h34V44" fill="none" stroke="#fff" stroke-width="7"/></g>`;$('#lat').innerHTML=h})();
 /* 캐러셀 */
-const CS=[['c-brown','세미나 · 신청 중','목회자 AI 자비스 비서 세미나','제주 2박 3일 · 3월 29일 ~ 31일 · 50만 원 · 선착순 30명','sheet'],['c-ink','워크숍 · 공지 예정','목회계획 워크숍','돌아보기부터 한 해 짜기까지 하루 8시간 · 지역 순회',''],['c-cream','책 · 1월호 · 출간 예정','2027 한국교회 예측 시나리오','9가지 신호와 세 갈래 미래 · 128쪽',''],['c-brown','교실 · 공지 예정','건강한 재정 청지기 교실','가계·헌금·청지기 정신 · 목회자 노후 준비',''],['c-ink','온라인 · 공지 예정','선교사 AI 특강','대만·말레이시아·인도네시아·미국 등 선교지와 이민교회',''],['c-cream','책 · 7월호 · 집필 예정','2028 목회전략','신호를 무엇을 시작할지, 예산과 담당까지 실행 계획으로','']];
+const CS=[['c-navy','세미나 · 신청 중','목회자 AI 자비스 비서 세미나','제주 2박 3일 · 3월 29일(월)~31일(수) · 교육 19시간 · 50만 원 · 선착순 30명','sheet'],['c-ink','워크숍 · 공지 예정','목회계획 워크숍','돌아보기부터 한 해 짜기까지 하루 8시간 · 지역 순회',''],['c-cream','책 · 1월호 · 출간 예정','2027 한국교회 예측 시나리오','9가지 신호와 세 갈래 미래 · 128쪽',''],['c-navy','교실 · 공지 예정','건강한 재정 청지기 교실','가계·헌금·청지기 정신 · 목회자 노후 준비',''],['c-ink','온라인 · 공지 예정','선교사 AI 특강','대만·말레이시아·인도네시아·미국 등 선교지와 이민교회',''],['c-cream','책 · 7월호 · 집필 예정','2028 목회전략','신호를 무엇을 시작할지, 예산과 담당까지 실행 계획으로','']];
 const deco=['<svg viewBox="0 0 300 200" style="position:absolute;inset:60px 32px auto;width:calc(100% - 64px);height:180px" aria-hidden="true">'+Array.from({length:60},(_,i)=>`<rect x="${(i%12)*25}" y="${Math.floor(i/12)*25}" width="18" height="18" fill="${(i*7)%11<3?'#E8590C':'rgba(255,255,255,.1)'}"/>`).join('')+'</svg>'];
-$('#car').innerHTML=CS.map(([c,t,h,s,go],i)=>`<div class="card ${c}">${i%3===0?deco[0]:i%3===1?'<svg viewBox="0 0 300 200" style="position:absolute;inset:60px 32px auto;width:calc(100% - 64px);height:180px" aria-hidden="true"><path d="M0 160C80 160 120 60 300 30" stroke="#E8590C" stroke-width="2" fill="none"/><path d="M0 160C80 160 140 140 300 130" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none"/><path d="M0 160C80 160 140 190 300 196" stroke="rgba(255,255,255,.25)" stroke-width="1.5" fill="none"/></svg>':'<svg viewBox="0 0 300 200" style="position:absolute;inset:60px 32px auto;width:calc(100% - 64px);height:180px" aria-hidden="true"><rect x="100" y="10" width="110" height="160" fill="#3A1B10"/><rect x="108" y="18" width="94" height="144" fill="none" stroke="#E8590C"/><text x="155" y="100" text-anchor="middle" fill="#fff" font-family="Noto Serif KR" font-size="22">'+(i===2?'2027':'2028')+'</text></svg>'}<span class="tag2"><span class="sq"></span>${t}</span><div class="ttl">${h}</div><p class="sm">${s}</p>${go?'<button class="btn b-white" style="margin-top:18px;align-self:flex-start" onclick="openSheet()">신청하기 <svg><use href="#ar"/></svg></button>':''}</div>`).join('');
+$('#car').innerHTML=CS.map(([c,t,h,s,go],i)=>`<div class="card ${c}">${i%3===0?deco[0]:i%3===1?'<svg viewBox="0 0 300 200" style="position:absolute;inset:60px 32px auto;width:calc(100% - 64px);height:180px" aria-hidden="true"><path d="M0 160C80 160 120 60 300 30" stroke="#E8590C" stroke-width="2" fill="none"/><path d="M0 160C80 160 140 140 300 130" stroke="rgba(255,255,255,.5)" stroke-width="1.5" fill="none"/><path d="M0 160C80 160 140 190 300 196" stroke="rgba(255,255,255,.25)" stroke-width="1.5" fill="none"/></svg>':'<svg viewBox="0 0 300 200" style="position:absolute;inset:60px 32px auto;width:calc(100% - 64px);height:180px" aria-hidden="true"><rect x="100" y="10" width="110" height="160" fill="#0E2A6B"/><rect x="108" y="18" width="94" height="144" fill="none" stroke="#E8590C"/><text x="155" y="100" text-anchor="middle" fill="#fff" font-family="Noto Serif KR" font-size="22">'+(i===2?'2027':'2028')+'</text></svg>'}<span class="tag2"><span class="sq"></span>${t}</span><div class="ttl">${h}</div><p class="sm">${s}</p>${go?'<button class="btn b-white" style="margin-top:18px;align-self:flex-start" onclick="openSheet()">신청하기 <svg><use href="#ar"/></svg></button>':''}</div>`).join('');
 function car(d){const c=$('#car');c.scrollBy({left:d*(c.firstElementChild.offsetWidth+12),behavior:RM?'auto':'smooth'})}
 /* 숫자 줄 */
-$('#rates').innerHTML=[['1,000+','함께한 목회자'],['10곳','국내 현장 도시'],['5회','해외 선교지 사역'],['1~5기','AI 설교 세미나'],['300+','목회계획 세미나']].map(([a,b])=>`<div><b>${a}</b><span>${b}</span><div class="dots">${'<i></i>'.repeat(5)}</div></div>`).join('');
+$('#rates').innerHTML=[['결정은 목회자가','비서는 초안과 자료를 내놓고, 고르고 정하는 일은 목회자가 합니다.'],['내놓은 것은 꼭 확인','AI가 쓴 내용은 틀릴 수 있습니다. 성경 본문과 사실은 직접 확인합니다.'],['성도의 정보는 조심히','무엇을 맡기고 무엇을 맡기지 않을지 기준을 먼저 세웁니다.']].map(([a,b],i)=>`<div><span class="mono">0${i+1}</span><b style="font-size:20px;margin-top:6px">${a}</b><span>${b}</span></div>`).join('');
 /* 강사 */
-const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','library','Kenneth C. Zirkel · CC BY 4.0','공개 기사 확인'],['PLANNING','최현식','미래교회연구소 대표, 예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 목회계획 세미나를 이끕니다.','seminar2','Breather · CC0','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','seminars','Ben White · CC0','공개 기사 확인'],['NEXT GEN','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 다음 세대를 세웁니다.','applied','Peter Lewis · CC0','본인 확인 필요'],['STEWARDSHIP','현영광','가계·헌금·청지기 정신과 목회자 노후 준비 교육(담당 가안).','news','Priscilla Du Preez · CC0','담당·소개 가안']];
+const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','library','Kenneth C. Zirkel · CC BY 4.0','공개 기사 확인'],['PLANNING','최현식','미래교회연구소 대표, 예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 목회계획 세미나를 이끕니다.','seminar2','Breather · CC0','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','seminars','Ben White · CC0','공개 기사 확인'],['YOUNG ADULT','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 청년 세대를 세웁니다.','applied','Peter Lewis · CC0','본인 확인 필요'],['YOUTH MISSION','현영광','서울YFC(십대선교회) 대표. "그리스도는 십대를 통하여 세계를 변화시킨다" — 청소년 선교 현장에서 다음 세대 사역을 이끕니다.','news','Priscilla Du Preez · CC0','명함 자료 확인']];
 $('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p><span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">사진: ${cr}</span><b>${n}</b></div></div>`).join('');
 /* 시나리오 원뿔 */
 (function(){let h='<g fill="none" stroke-width="1">';for(let i=0;i<=12;i++){const t=i/12;h+=`<path d="M60 180 L460 ${30+t*300}" stroke="rgba(255,255,255,${i===2?.0:.12})"/>`}
  for(let k=1;k<=6;k++){const x=60+k*66.6,s=(x-60)/400;h+=`<ellipse cx="${x}" cy="180" rx="${10*s+2}" ry="${150*s}" stroke="rgba(255,255,255,.14)"/>`}
  h+=`</g><path d="M60 180C200 170 320 80 460 50" stroke="#F2A541" stroke-width="2.4" fill="none"/><path d="M60 180C200 180 320 178 460 176" stroke="#fff" stroke-width="2.4" fill="none"/><path d="M60 180C200 190 320 270 460 310" stroke="#E8590C" stroke-width="2.4" fill="none"/><rect x="54" y="174" width="12" height="12" fill="#E8590C"/>`;
  h+=`<g font-family="Noto Sans KR" font-size="13" fill="#fff"><text x="470" y="54">기회</text><text x="470" y="180">기준</text><text x="470" y="314">위기</text><text x="40" y="210" fill="rgba(255,255,255,.6)">2027</text><text x="440" y="352" fill="rgba(255,255,255,.6)">2030</text></g>`;$('#cone').innerHTML=h})();
+
+/* 타임테이블 */
+(function(){const H0=7,PX=52,y=t=>{const [h,m]=t.split(':').map(Number);return (h-H0+m/60)*PX};
+ const D=[['1일차','3.29 (월)','교육 6시간',[['10:00','10:30','m','도착 · 등록'],['10:30','11:00','m','여는 예배 · 인사'],['11:00','12:30','t1','내 자비스 만나기','설치 · 계정 · 첫 대화'],['12:30','13:30','m','점심'],['13:30','15:00','t1','행정 문서 맡기기','주보 · 공문 · 회의록'],['15:00','15:20','r','쉼'],['15:20','16:50','t1','심방 · 교육 · 소통','기록 · 교안 · 공지 글'],['16:50','18:00','r','쉼 · 산책 · 교제'],['18:00','19:00','m','저녁'],['19:00','20:30','t2','홈페이지 ① 뼈대','교회 소개 · 예배 안내']]],
+  ['2일차','3.30 (화)','교육 7.5시간',[['07:30','08:00','g','아침 말씀 · 기도'],['08:00','09:00','m','아침'],['09:00','10:30','t2','홈페이지 ② 내용 채우기','글 · 사진 · 로고'],['10:30','10:50','r','쉼'],['10:50','12:20','t2','홈페이지 ③ 도메인 구입','우리 교회 주소 정하기'],['12:20','13:30','m','점심'],['13:30','15:00','t2','홈페이지 ④ 서버 연결 · 열기','주소를 치면 열림'],['15:00','15:20','r','쉼'],['15:20','16:50','t3','쇼츠 ① 대본 · 목소리','교회 소식을 1분으로'],['16:50','18:00','r','쉼 · 산책 · 교제'],['18:00','19:00','m','저녁'],['19:00','20:30','t3','쇼츠 ② 화면 · 자막','한 편으로 엮기']]],
+  ['3일차','3.31 (수)','교육 5.5시간',[['07:30','08:00','g','아침 말씀 · 기도'],['08:00','09:00','m','아침'],['09:00','10:30','t3','쇼츠 ③ 완성 · 함께 보기',''],['10:30','10:50','r','쉼'],['10:50','12:20','t4','자비스 고급 활용','반복 업무 · 자료 쌓기'],['12:20','13:20','m','점심'],['13:20','14:50','t4','내 교회 적용 계획','첫 한 달 한 장'],['15:00','16:00','t4','발표 · 나눔',''],['16:00','16:40','m','파송 예배 · 귀가']]]];
+ let h='<div class="tthr">'+Array.from({length:14},(_,i)=>`<span style="top:${i*PX-8}px">${String(H0+i).padStart(2,'0')}:00</span>`).join('')+'</div><div class="ttlines"></div>';
+ D.forEach(([d,dt,ed,bl])=>{h+=`<div class="ttcol"><div class="hd2"><span>${d} <span style="opacity:.85;font-size:13px;margin-left:4px">${dt}</span></span><em>${ed}</em></div>`+bl.map(([a,b,c,t,sub])=>{const hh=y(b)-y(a);return hh<24?`<div class="ttb ${c}" title="${a} ${t}" style="top:${y(a)+1}px;height:${hh-3}px;padding:0"></div>`:`<div class="ttb ${c}" style="top:${y(a)+1}px;height:${hh-3}px"><span style="font-family:var(--mono);font-size:12.5px;opacity:.85">${a}</span> ${t}${sub&&hh>60?`<small>${sub}</small>`:''}</div>`}).join('')+'</div>'});
+ $('#ttgrid').innerHTML=h;
+ $('#ttleg').innerHTML=[['t1','자비스 활용 4.5h','#2563EB'],['t2','홈페이지 고급판 6h','#0E9DB0'],['t3','쇼츠 제작 4.5h','#EA580C'],['t4','자비스 고급 활용 4h','#1E40AF'],['g','경건','#FEF3C7'],['m','식사·모임','#EEF2F8']].map(([c,t,col])=>`<span><i style="background:${col}"></i>${t}</span>`).join('')+'<span style="margin-left:auto;font-weight:500;color:var(--t1)">교육 합계 6 + 7.5 + 5.5 = 19시간</span>'})();
+/* 자료 갤러리 */
+$('#gal').innerHTML=[['poster1','포스터 · 인스타 피드'],['poster2','카드뉴스 01 · 왜 지금 AI 비서인가'],['poster3','카드뉴스 02 · 손에 쥐고 가는 네 가지'],['poster4','카드뉴스 03 · 무엇을 배우나']].map(([f,t])=>`<a href="img/${f}.jpg" target="_blank" rel="noopener"><img src="img/${f}.jpg" alt="${t}" loading="lazy"><span>${t}</span></a>`).join('')+`<a class="pdf" href="guide_jeju.pdf" target="_blank" rel="noopener"><span class="mono" style="color:var(--w2)"><span class="sq"></span>PDF · 7쪽</span><b>목회자 AI 자비스비서 활용 및 운용 사역 세미나 안내서</b><span>왜 지금 · 가져가는 네 가지 · 커리큘럼 · 타임테이블 · 안내 · 자주 묻는 질문 →</span></a>`;
+/* FAQ */
+$('#faql').innerHTML=[['AI가 목회를 대신하나요?','아닙니다. 성도를 만나고 결정하는 일은 목회자가 합니다. 비서는 문서 초안과 자료 정리처럼 손이 많이 가는 준비를 곁에서 돕습니다.'],['컴퓨터에 익숙하지 않은데 따라갈 수 있을까요?','설치부터 한 걸음씩 함께 하는 실습형으로 짰습니다. 만들면 바로 화면에 보이는 순서로 진행합니다.'],['비용 50만원에는 무엇이 들어 있나요?','숙박, 식사, 클로드 요금이 포함되어 있습니다.'],['홈페이지는 정말 열린 상태로 가져가나요?','도메인 구입과 서버 연결까지 실습에서 직접 진행해, 주소를 치면 우리 교회 홈페이지가 열리는 것을 목표로 합니다.'],['성도님들의 개인 정보는 어떻게 다루나요?','실습에는 실제 성도의 민감한 정보를 넣지 않기를 권합니다. 무엇을 맡기고 무엇을 맡기지 않을지, 목회자가 정하는 기준을 함께 살펴봅니다.'],['돌아가서도 혼자 쓸 수 있을까요?','내 노트북에 설치하고 내 교회 자료로 실습하므로 그대로 이어 쓸 수 있습니다. 마지막 날에는 「내 교회 적용 계획」을 세워 돌아갑니다.']].map(([q,a],i)=>`<details${i===0?' open':''}><summary><i>Q</i>${q}</summary><p>${a}</p></details>`).join('');
 /* 시트 */
 let lastF=null;
-function openSheet(){lastF=document.activeElement;$('#shbody').innerHTML=`<button class="x" aria-label="닫기" onclick="closeSheet()">×</button><span class="mono"><span class="sq"></span>신청 중 · 선착순 30명</span><h2 class="sf h3" id="shtitle" style="margin-top:14px">목회자 AI 자비스 비서 세미나</h2><p style="margin-top:10px">목회자를 위한 2박 3일 실습. 사흘 뒤, 내 교회의 비서와 함께 돌아갑니다.</p><dl><dt>일정</dt><dd>3월 29일 ~ 31일 (2박 3일)</dd><dt>장소</dt><dd>제주</dd><dt>비용</dt><dd>50만 원 · 숙식·클로드 요금 포함 · 계좌이체</dd><dt>강사</dt><dd>문재진 · 이창근 · 최윤식 · 최현식 · 현영광</dd><dt>준비</dt><dd>내 노트북</dd></dl><table class="stbl"><tr><th>날</th><th>묶음</th><th>시간</th></tr><tr><td>1일차</td><td>자비스 활용 — 설치·주보·공문·심방·교안</td><td>4.5h</td></tr><tr><td>1–2일차</td><td>홈페이지 고급판 — 도메인·서버 연결</td><td>6h</td></tr><tr><td>2–3일차</td><td>쇼츠 제작 — 대본·목소리·자막</td><td>4.5h</td></tr><tr><td>3일차</td><td>자비스 고급 활용·적용 계획</td><td>4h</td></tr></table><form onsubmit="event.preventDefault();this.querySelector('.ok2').hidden=false" style="margin-top:20px"><label class="f">이름<input required></label><label class="f">휴대폰<input required inputmode="tel"></label><label class="f">이메일<input required type="email"></label><label class="f">교회<input required></label><label class="f">직분<select><option>담임목사</option><option>부목사</option><option>전도사</option><option>선교사</option><option>기타</option></select></label><label class="chk"><input type="checkbox" required> 개인정보 수집·이용에 동의합니다 (이름·연락처·이메일·교회, 세미나 운영 목적, 종료 후 1년 보관).</label><button class="btn b-ink" style="margin-top:20px">신청하기 <svg><use href="#ar"/></svg></button><p class="ok2" hidden style="margin-top:12px;color:var(--t1)">시안 화면입니다. 실제로 접수되지는 않습니다.</p></form>`;$('#sheet').hidden=false;document.body.style.overflow='hidden';$('#sheet .x').focus()}
+function openSheet(){lastF=document.activeElement;$('#shbody').innerHTML=`<button class="x" aria-label="닫기" onclick="closeSheet()">×</button><span class="mono"><span class="sq"></span>신청 중 · 선착순 30명</span><h2 class="sf h3" id="shtitle" style="margin-top:14px">목회자 AI 자비스비서 활용 및 운용 사역 세미나</h2><p style="margin-top:10px">목회자를 위한 2박 3일 실습. 사흘 뒤, 내 교회의 비서와 함께 돌아갑니다.</p><dl><dt>일정</dt><dd>3월 29일(월) ~ 31일(수) · 2박 3일</dd><dt>장소</dt><dd>제주 · 세부 장소 확인 필요</dd><dt>교육</dt><dd>합계 19시간 · 실습 13회</dd><dt>비용</dt><dd>50만 원 · 숙식·클로드 요금 포함 · 계좌이체</dd><dt>강사</dt><dd>문재진 · 이창근 · 최윤식 · 최현식 · 현영광</dd><dt>준비</dt><dd>노트북(맥·윈도)·충전기 · 휴대폰(본인 확인) · 교회 로고·사진·소개 글 · 원하는 홈페이지 주소 두세 가지</dd></dl><p style="margin:0 0 6px"><a href="guide_jeju.pdf" target="_blank" rel="noopener" style="text-decoration:underline">안내서 PDF(7쪽) 열기</a></p><table class="stbl"><tr><th>날</th><th>묶음</th><th>시간</th></tr><tr><td>1일차</td><td>자비스 활용 — 설치·주보·공문·심방·교안</td><td>4.5h</td></tr><tr><td>1–2일차</td><td>홈페이지 고급판 — 도메인·서버 연결</td><td>6h</td></tr><tr><td>2–3일차</td><td>쇼츠 제작 — 대본·목소리·자막</td><td>4.5h</td></tr><tr><td>3일차</td><td>자비스 고급 활용·적용 계획</td><td>4h</td></tr><tr><td></td><td style="color:var(--t3)">합계 · 묶음별 시간은 타임테이블 기준</td><td>19h</td></tr></table><form onsubmit="event.preventDefault();this.querySelector('.ok2').hidden=false" style="margin-top:20px"><label class="f">이름<input required></label><label class="f">휴대폰<input required inputmode="tel"></label><label class="f">이메일<input required type="email"></label><label class="f">교회<input required></label><label class="f">직분<select><option>담임목사</option><option>부목사</option><option>전도사</option><option>선교사</option><option>기타</option></select></label><label class="chk"><input type="checkbox" required> 개인정보 수집·이용에 동의합니다 (이름·연락처·이메일·교회, 세미나 운영 목적, 종료 후 1년 보관).</label><button class="btn b-ink" style="margin-top:20px">신청하기 <svg><use href="#ar"/></svg></button><p class="ok2" hidden style="margin-top:12px;color:var(--t1)">시안 화면입니다. 실제로 접수되지는 않습니다.</p></form>`;$('#sheet').hidden=false;document.body.style.overflow='hidden';$('#sheet .x').focus()}
 function openPrivacy(){lastF=document.activeElement;$('#shbody').innerHTML=`<button class="x" aria-label="닫기" onclick="closeSheet()">×</button><span class="mono"><span class="sq"></span>안내</span><h2 class="sf h3" id="shtitle" style="margin-top:14px">개인정보 처리방침</h2><p style="margin-top:10px">화면 구성 예시입니다. 실제 문구는 법 조건을 확인한 뒤 확정합니다.</p><table class="stbl"><tr><th>수집 항목</th><td>이름, 휴대폰, 이메일, 교회, 직분</td></tr><tr><th>목적</th><td>세미나 신청 접수, 입금 확인, 안내 연락</td></tr><tr><th>보관 기간</th><td>세미나 종료 후 1년 (확인 필요)</td></tr><tr><th>제3자 제공</th><td>없음 (확인 필요)</td></tr></table>`;$('#sheet').hidden=false;document.body.style.overflow='hidden';$('#sheet .x').focus()}
 function closeSheet(){$('#sheet').hidden=true;document.body.style.overflow='';lastF&&lastF.focus()}
 $('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeSheet()});
