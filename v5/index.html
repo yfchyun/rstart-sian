@@ -239,7 +239,9 @@ img{max-width:100%;display:block}
 .ppl .top .btn{align-self:flex-start;min-height:40px;padding:8px 14px;font-size:13px}
 .ppl .ph{position:relative;aspect-ratio:4/3;overflow:hidden;color:#fff;flex:none}
 .ppl .ph .credit{font-size:12px;left:10px;right:10px;line-height:1.35}
-.ppl .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.6)}
+.ppl .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ppl .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,28,74,.78))}
+.ppl .ph b,.ppl .ph .credit{z-index:2}
 .ppl .ph b{position:absolute;left:18px;bottom:14px;font:500 28px var(--serif);letter-spacing:-.02em}
 .ppl .ck{font-size:12.5px;border:1px solid rgba(30,50,90,.3);padding:1px 8px;align-self:flex-start}
 /* 최종 CTA */
@@ -325,6 +327,9 @@ img{max-width:100%;display:block}
 .faq p{padding:0 0 22px 42px;color:var(--t2);max-width:46em}
 
 /* 대표 인사말 */
+.ph0.real{padding:0;background:#E9EEF7}
+.ph0.real::before{display:none}
+.ph0.real img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .ceo{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:110px}
 @media (max-width:860px){.ceo{grid-template-columns:1fr}}
 .pf{margin:0}
@@ -442,7 +447,7 @@ img{max-width:100%;display:block}
 
 
   <section class="wrap" id="ceo"><div class="ceo rv">
-    <figure class="pf"><div class="ph0" role="img" aria-label="정성진 대표 사진 자리"><span class="ini">정</span><span class="mono" style="color:var(--w2)">대표 사진 · 받는 대로 교체</span></div></figure>
+    <figure class="pf"><div class="ph0 real"><img src="img/ceo.jpg" alt="미래교회연구소 대표 정성진 목사"></div></figure>
     <div class="msg">
       <span class="eyebrow mono"><span class="sq"></span>대표 인사말</span>
       <blockquote class="sf">"내가 죽어야 교회가 산다는 마음으로 걸어왔습니다. 이제 미래를 읽는 눈과 새로운 도구로, 목회자가 말씀과 사람 곁에 더 오래 머물도록 돕겠습니다."</blockquote>
@@ -472,7 +477,7 @@ img{max-width:100%;display:block}
   </section>
 
   <section class="wrap" id="ppl">
-    <div class="shead"><h2 class="sf h2 rv">다섯 강사가<br>다섯 사역을 이끕니다.</h2><p class="rv d1">공개 기사로 확인한 내용을 바탕으로 쓴 가안입니다. 사진은 강사 본인 사진이 아니라 강의 장면을 보여 주는 자료 사진이며, 본인 강의 사진을 받는 대로 바꿉니다.</p></div>
+    <div class="shead"><h2 class="sf h2 rv">다섯 강사가<br>다섯 사역을 이끕니다.</h2><p class="rv d1">다섯 강사의 실제 사진입니다. 소개 글은 공개 기사로 확인한 내용을 바탕으로 쓴 가안이며, 강사 본인 확인 뒤 확정합니다.</p></div>
     <div class="ppl" id="pplg"></div>
   </section>
 
@@ -571,8 +576,8 @@ function car(d){const c=$('#car');c.scrollBy({left:d*(c.firstElementChild.offset
 /* 숫자 줄 */
 $('#rates').innerHTML=[['결정은 목회자가','비서는 초안과 자료를 내놓고, 고르고 정하는 일은 목회자가 합니다.'],['내놓은 것은 꼭 확인','AI가 쓴 내용은 틀릴 수 있습니다. 성경 본문과 사실은 직접 확인합니다.'],['성도의 정보는 조심히','무엇을 맡기고 무엇을 맡기지 않을지 기준을 먼저 세웁니다.']].map(([a,b],i)=>`<div><span class="mono">0${i+1}</span><b style="font-size:20px;margin-top:6px">${a}</b><span>${b}</span></div>`).join('');
 /* 강사 */
-const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','lec1','Ling-Luo-CA · CC BY-SA 4.0','공개 기사 확인'],['PLANNING','최현식','예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 2024년부터 목회계획 세미나를 이끕니다.','lec2','Sonkiki · CC0','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','lec3','LF Asia · CC BY 3.0','공개 기사 확인'],['YOUNG ADULT','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 청년 세대를 세웁니다.','lec4','delegateconnectimages · CC BY 2.0','본인 확인 필요'],['YOUTH MISSION','현영광','서울YFC(십대선교회) 대표. "그리스도는 십대를 통하여 세계를 변화시킨다" — 청소년 선교 현장에서 다음 세대 사역을 이끕니다.','lec5','AIATSIS · CC BY-SA 4.0','명함 자료 확인']];
-$('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p><span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">자료 사진 · ${cr}</span><b>${n}</b></div></div>`).join('');
+const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','p1','연구소 제공','공개 기사 확인'],['PLANNING','최현식','예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 2024년부터 목회계획 세미나를 이끕니다.','p2','연구소 제공','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','p3','연구소 제공','공개 기사 확인'],['YOUNG ADULT','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 청년 세대를 세웁니다.','p4','연구소 제공','본인 확인 필요'],['YOUTH MISSION','현영광','서울YFC(십대선교회) 대표. "그리스도는 십대를 통하여 세계를 변화시킨다" — 청소년 선교 현장에서 다음 세대 사역을 이끕니다.','p5','연구소 제공','명함 자료 확인']];
+$('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p><span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">사진 · ${cr}</span><b>${n}</b></div></div>`).join('');
 /* 시나리오 원뿔 */
 (function(){let h='<g fill="none" stroke-width="1">';for(let i=0;i<=12;i++){const t=i/12;h+=`<path d="M60 180 L460 ${30+t*300}" stroke="rgba(255,255,255,${i===2?.0:.12})"/>`}
  for(let k=1;k<=6;k++){const x=60+k*66.6,s=(x-60)/400;h+=`<ellipse cx="${x}" cy="180" rx="${10*s+2}" ry="${150*s}" stroke="rgba(255,255,255,.14)"/>`}
