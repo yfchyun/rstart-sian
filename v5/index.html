@@ -344,6 +344,16 @@ img{max-width:100%;display:block}
 .sig span{font-size:14px;color:var(--t3)}
 .bio{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;font-size:14.5px;color:var(--t2)}
 .bio li{display:flex;align-items:center}
+/* 관련 사이트 */
+.links{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:var(--gap)}
+@media (max-width:760px){.links{grid-template-columns:1fr}}
+.links a{position:relative;display:flex;flex-direction:column;gap:6px;background:var(--navy);color:#fff;padding:24px 60px 24px 24px;min-height:44px;transition:background .3s}
+.links a:hover{background:#1E40AF}
+.links .mono{color:var(--w2)}
+.links b{font:400 clamp(22px,2vw,28px) var(--serif);letter-spacing:-.02em}
+.links span:not(.mono){font-size:14px;color:var(--w2)}
+.links i{position:absolute;right:24px;top:22px;font-style:normal;font-size:22px;color:#F59E0B}
+.ext{display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
 /* 등장 */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -485,6 +495,10 @@ img{max-width:100%;display:block}
   <section class="wrap" id="mat">
     <div class="shead"><h2 class="sf h2 rv">세미나 자료,<br>미리 보세요.</h2><p class="rv d1">실제로 배포한 포스터와 카드뉴스, 7쪽 안내서입니다. 단톡방이나 교회 게시판에 그대로 나눠 주셔도 됩니다.</p></div>
     <div class="gal rv" id="gal"></div>
+    <div class="links rv">
+      <a href="https://www.cysinsight.com" target="_blank" rel="noopener"><span class="mono"><span class="sq"></span>관련 사이트 · 미래학</span><b>cysinsight.com</b><span>최윤식 목사 · 아시아미래인재연구소. 미래 시나리오와 강연·자문</span><i>↗</i></a>
+      <a href="https://ko.dxchurch.org" target="_blank" rel="noopener"><span class="mono"><span class="sq"></span>관련 사이트 · AI 목회</span><b>DX Church</b><span>더 나은 목회를 준비하는 챗GPT 활용법 · GPTs 대시보드 · 특강과 도서</span><i>↗</i></a>
+    </div>
   </section>
   <section class="wrap" id="faq">
     <div class="shead"><h2 class="sf h2 rv">미리 궁금하실 것들.</h2><p class="rv d1">안내서의 자주 묻는 질문입니다. 더 궁금한 점은 소식 받기로 남겨 주세요.</p></div>
@@ -505,7 +519,7 @@ img{max-width:100%;display:block}
     <div><h5>사역</h5><a class="s" href="#sv">미래예측 목회전략</a><a class="s" href="#sv">AI자비스비서</a><a class="s" href="#sv">목회계획 워크숍</a><a class="s" href="#sv">건강한 재정 사역</a><a class="s" href="#sv">세미나·교육 체계</a></div>
     <div><h5>세미나</h5><a class="s" href="#sem">AI 자비스 비서 세미나</a><a class="s" href="#sem">목회계획 워크숍</a><a class="s" href="#sem">재정 청지기 교실</a><a class="s" href="#sem">선교사 AI 특강</a></div>
     <div><h5>책</h5><a class="s" href="#sem">2027 예측 시나리오</a><a class="s" href="#sem">2028 목회전략</a><a class="s" href="#dash">예측 기록부</a></div>
-    <div><h5>자료</h5><a class="s" href="guide_jeju.pdf">제주 세미나 안내서 (PDF)</a><a class="s" href="#mat">포스터·카드뉴스</a><a class="s" href="#top">목차 가안 (PDF)</a><a class="s" href="#top">수강생 자료 · 기수 암호</a><button class="s" style="background:none;border:0;padding:11px 0;font:inherit;font-size:14px;color:var(--t2);cursor:pointer;text-align:left" onclick="openPrivacy()">개인정보 처리방침</button></div>
+    <div><h5>관련 사이트</h5><a class="s" href="https://www.cysinsight.com" target="_blank" rel="noopener">cysinsight.com ↗</a><a class="s" href="https://ko.dxchurch.org" target="_blank" rel="noopener">DX Church ↗</a><h5 style="margin-top:22px">자료</h5><a class="s" href="guide_jeju.pdf">제주 세미나 안내서 (PDF)</a><a class="s" href="#mat">포스터·카드뉴스</a><a class="s" href="#top">목차 가안 (PDF)</a><a class="s" href="#top">수강생 자료 · 기수 암호</a><button class="s" style="background:none;border:0;padding:11px 0;font:inherit;font-size:14px;color:var(--t2);cursor:pointer;text-align:left" onclick="openPrivacy()">개인정보 처리방침</button></div>
   </div>
   <div class="bot"><span style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><b style="font-weight:500;color:var(--t1)">R.Start</b><span style="color:var(--t3)">미래교회연구소 · Future Church Institute</span><span class="status"><i></i>시안 검토 중</span></span><span style="color:var(--t3)">© 2027 R.Start · 사진 출처는 각 사진 위에 표기</span></div>
 </div></footer>
@@ -577,7 +591,7 @@ function car(d){const c=$('#car');c.scrollBy({left:d*(c.firstElementChild.offset
 $('#rates').innerHTML=[['결정은 목회자가','비서는 초안과 자료를 내놓고, 고르고 정하는 일은 목회자가 합니다.'],['내놓은 것은 꼭 확인','AI가 쓴 내용은 틀릴 수 있습니다. 성경 본문과 사실은 직접 확인합니다.'],['성도의 정보는 조심히','무엇을 맡기고 무엇을 맡기지 않을지 기준을 먼저 세웁니다.']].map(([a,b],i)=>`<div><span class="mono">0${i+1}</span><b style="font-size:20px;margin-top:6px">${a}</b><span>${b}</span></div>`).join('');
 /* 강사 */
 const P=[['FUTURES','최윤식','전문 미래학자. 아시아미래인재연구소 소장, 세계전문미래학자협회(APF) 이사. 『2020-2040 한국교회 미래지도』로 한국교회 미래를 전망합니다.','p1b','연구소 제공','공개 기사 확인'],['PLANNING','최현식','예수나무교회 담임. 『앞으로 5년, 한국교회 미래 시나리오』 공저. 2024년부터 목회계획 세미나를 이끕니다.','p2','연구소 제공','공개 기사 확인'],['AI · SERMON','문재진','미래교회연구소 소장. 교육목회·미래 교회 컨설팅. "AI는 도구, 설교와 중보는 목회자의 몫."','p3','연구소 제공','공개 기사 확인'],['YOUNG ADULT','이창근','청년 사역과 소통 방법론. 공감과 목적 있는 소그룹으로 청년 세대를 세웁니다.','p4b','연구소 제공','본인 확인 필요'],['YOUTH MISSION','현영광','서울YFC(십대선교회) 대표. "그리스도는 십대를 통하여 세계를 변화시킨다" — 청소년 선교 현장에서 다음 세대 사역을 이끕니다.','p5','연구소 제공','명함 자료 확인']];
-$('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p><span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">사진 · ${cr}</span><b>${n} 목사</b></div></div>`).join('');
+$('#pplg').innerHTML=P.map(([c,n,t,img,cr,ck],i)=>`<div class="rv d${i%3}"><div class="top"><span class="mono">${c}</span><p>${t}</p>${i===0?'<a class="ext" href="https://www.cysinsight.com" target="_blank" rel="noopener">최윤식 목사 홈페이지 ↗</a>':''}<span class="ck">${ck}</span></div><div class="ph"><img src="img/${img}.jpg" alt="" loading="lazy"><span class="credit">사진 · ${cr}</span><b>${n} 목사</b></div></div>`).join('');
 /* 시나리오 원뿔 */
 (function(){let h='<g fill="none" stroke-width="1">';for(let i=0;i<=12;i++){const t=i/12;h+=`<path d="M60 180 L460 ${30+t*300}" stroke="rgba(255,255,255,${i===2?.0:.12})"/>`}
  for(let k=1;k<=6;k++){const x=60+k*66.6,s=(x-60)/400;h+=`<ellipse cx="${x}" cy="180" rx="${10*s+2}" ry="${150*s}" stroke="rgba(255,255,255,.14)"/>`}
